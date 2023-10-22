@@ -8,8 +8,39 @@
 import SwiftUI
 
 struct BuildingScreen: View {
+    @ObservedObject var viewModel = BuildingViewModel()
+
     var body: some View {
-        Text("Building Screen")
+        NavigationStack {
+            List {
+                ForEach(viewModel.filteredBuildings) { building in
+                    NavigationLink(destination: BuildingDetailScreen()) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(building.Abbr)
+                                    .bold()
+                                    .font(.system(size: 20))
+                                Text(building.Name)
+                                    .font(.system(size: 15))
+                            }
+                            Spacer()
+                            Image(systemName: "arrow.triangle.turn.up.right.circle.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 25)
+                                .foregroundStyle(Color("MainColor").opacity(0.8))
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Buildings")
+            .searchable(text: $viewModel.searchText)
+            .onAppear {
+                Task {
+                    viewModel.loadData()
+                }
+            }
+        }
     }
 }
 
