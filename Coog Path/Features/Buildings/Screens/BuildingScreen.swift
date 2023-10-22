@@ -28,7 +28,7 @@ struct BuildingScreen: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 25)
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(Color("MainColor").opacity(0.8))
                         }
                     }
                 }
