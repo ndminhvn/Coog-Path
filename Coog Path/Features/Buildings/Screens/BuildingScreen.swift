@@ -25,9 +25,7 @@ struct BuildingScreen: View {
                             }
                             Spacer()
                             Image(systemName: "arrow.triangle.turn.up.right.circle.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 25)
+                                .font(.title2)
                                 .foregroundStyle(Color("MainColor").opacity(0.8))
                         }
                     }
