@@ -12,6 +12,10 @@ struct HomeScreen: View {
     @State private var fromLocation: String = ""
     @State private var toLocation: String = ""
     @State private var hiddenButton: Bool = true
+//    @State private var cameraPosition = MapCameraPosition.region(MKCoordinateRegion(
+//            center: CLLocationCoordinate2D(latitude: 29.766083, longitude: -95.358810),
+//            span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+//        ))
     
     var body: some View {
         VStack {
@@ -60,12 +64,22 @@ struct HomeScreen: View {
             
             //Map stack
             VStack{
-                Map()
+                
+                Map(
+                    //position: $cameraPosition,
+                    
+                  )
+                    //{
+//                    UserAnnotation()
+//                }
+                
                     .clipShape(.rect(cornerRadius: 16))
+                    
             }
             
             Spacer()
             Spacer()
+            //Red button
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                 Text("Go Coog")
                     .font(.title2)
