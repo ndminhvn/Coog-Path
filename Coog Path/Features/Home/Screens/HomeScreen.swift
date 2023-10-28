@@ -32,9 +32,6 @@ struct HomeScreen: View {
                 UserAnnotation()
             }
             .overlay(alignment: .topLeading) {
-                ZStack {
-                    
-                }
                 VStack {
                     // From stack
                     VStack {
