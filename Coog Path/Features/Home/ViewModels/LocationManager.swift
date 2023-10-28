@@ -15,7 +15,7 @@ final class LocationManager: NSObject, ObservableObject {
         center: CLLocationCoordinate2D(latitude: 29.766083, longitude: -95.358810),
         span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)))
     
-    
+    // UH Main center coordinate
     @Published var position: MapCameraPosition = .camera(MapCamera(centerCoordinate: CLLocationCoordinate2D(latitude: 29.72001, longitude: -95.34207), distance: 1000))
 //    @Published var position: MapCameraPosition = .userLocation(fallback: .automatic)
     

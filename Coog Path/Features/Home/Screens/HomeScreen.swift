@@ -25,10 +25,10 @@ struct HomeScreen: View {
                 Spacer()
             }
             Spacer()
-
+            
             // Map stack
             Map(position: $manager.position, scope: mapScope) {
-                Marker("UH", coordinate: CLLocationCoordinate2D(latitude: 29.72001, longitude: -95.34207))
+//                Marker("UH", coordinate: CLLocationCoordinate2D(latitude: 29.72001, longitude: -95.34207))
                 UserAnnotation()
             }
             .overlay(alignment: .topLeading) {
@@ -45,28 +45,24 @@ struct HomeScreen: View {
                             "Your Current Location",
                             text: $fromLocation
                         )
-                        .textFieldStyle(.roundedBorder)
                     }
-                    .shadow(radius: 10)
-
+                    
                     // Going to stack
                     VStack {
                         HStack {
                             Text("Going to")
                                 .bold()
                                 .font(.system(size: 20))
-
                             Spacer()
                         }
-
                         TextField(
                             "Search building",
                             text: $toLocation
                         )
-                        .textFieldStyle(.roundedBorder)
                     }
-                    .shadow(radius: 10)
                 }
+                .textFieldStyle(.roundedBorder)
+                .shadow(radius: 10)
                 .padding()
                 .background(Color.white.opacity(0.75).blur(radius: 4))
             }
@@ -90,14 +86,15 @@ struct HomeScreen: View {
             // NOTE: Display the button based on value of destination box - TEMPORARY.
             // TODO: Display the button if find a valid destination.
             if !toLocation.isEmpty {
-                Button(action: {}, label: {
+                Button(action: {
+                    print("Button clicked")
+                }, label: {
                     Text("Go Coog")
                         .font(.title2)
                         .bold()
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
                         .padding(.horizontal, 20)
                         .foregroundStyle(.white)
-
                 })
                 .background(RoundedRectangle(cornerRadius: 16).fill(Color("MainColor")))
             }
