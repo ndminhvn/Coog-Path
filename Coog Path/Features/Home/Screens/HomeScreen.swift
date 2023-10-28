@@ -11,15 +11,9 @@ import SwiftUI
 struct HomeScreen: View {
     @State private var fromLocation: String = ""
     @State private var toLocation: String = ""
-    @State private var hiddenButton: Bool = true
-//    @State private var cameraPosition = MapCameraPosition.region(MKCoordinateRegion(
-//            center: CLLocationCoordinate2D(latitude: 29.766083, longitude: -95.358810),
-//            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-//        ))
+    @Namespace var mapScope
 
     @StateObject var manager = LocationManager()
-
-    // var locationManager:  CLLocationManager?
 
     var body: some View {
         VStack {
@@ -31,140 +25,83 @@ struct HomeScreen: View {
                 Spacer()
             }
             Spacer()
-
-            // From stack
-            VStack {
-                HStack {
-                    Text("From")
-                        .bold()
-                        .font(.system(size: 20))
-                    Spacer()
-                }
-                TextField(
-                    "Your Current Location",
-                    text: $fromLocation
-                )
-                .textFieldStyle(.roundedBorder)
-            }
-
-            // Going to stack
-            VStack {
-                HStack {
-                    Text("Going to")
-                        .bold()
-                        .font(.system(size: 20))
-                    Spacer()
-                }
-
-                TextField(
-                    "Search building",
-                    text: $toLocation
-                )
-                .textFieldStyle(.roundedBorder)
-            }
-            .padding(.bottom)
-            Spacer()
-
+            
             // Map stack
-            VStack {
-                Map(position: $manager.region) {
-                    UserAnnotation()
-                }
-                .mapControls {
-                    MapUserLocationButton()
-                    MapCompass()
-                    MapScaleView()
-                }
-                .clipShape(.rect(cornerRadius: 16))
+            Map(position: $manager.position, scope: mapScope) {
+//                Marker("UH", coordinate: CLLocationCoordinate2D(latitude: 29.72001, longitude: -95.34207))
+                UserAnnotation()
             }
-
-            Spacer()
-            Spacer()
+            .overlay(alignment: .topLeading) {
+                VStack {
+                    // From stack
+                    VStack {
+                        HStack {
+                            Text("From")
+                                .bold()
+                                .font(.system(size: 20))
+                            Spacer()
+                        }
+                        TextField(
+                            "Your Current Location",
+                            text: $fromLocation
+                        )
+                    }
+                    
+                    // Going to stack
+                    VStack {
+                        HStack {
+                            Text("Going to")
+                                .bold()
+                                .font(.system(size: 20))
+                            Spacer()
+                        }
+                        TextField(
+                            "Search building",
+                            text: $toLocation
+                        )
+                    }
+                }
+                .textFieldStyle(.roundedBorder)
+                .shadow(radius: 10)
+                .padding()
+                .background(Color.white.opacity(0.75).blur(radius: 4))
+            }
+            .overlay(alignment: .bottomTrailing) {
+                VStack {
+                    MapUserLocationButton(scope: mapScope)
+                    MapPitchToggle(scope: mapScope)
+                    MapCompass(scope: mapScope)
+                        .mapControlVisibility(.automatic)
+                }
+                .buttonBorderShape(.roundedRectangle)
+                .padding()
+            }
+            .mapScope(mapScope)
+            .onChange(of: toLocation) {
+                manager.position = .automatic
+            }
+            .clipShape(.rect(cornerRadius: 16))
+            
             // Red button
             // NOTE: Display the button based on value of destination box - TEMPORARY.
             // TODO: Display the button if find a valid destination.
             if !toLocation.isEmpty {
-                Button(action:  {}, label: {
+                Button(action: {
+                    print("Button clicked")
+                }, label: {
                     Text("Go Coog")
                         .font(.title2)
                         .bold()
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
                         .padding(.horizontal, 20)
                         .foregroundStyle(.white)
-                    
                 })
                 .background(RoundedRectangle(cornerRadius: 16).fill(Color("MainColor")))
             }
-            Spacer()
         }
         .padding()
     }
 }
-
-final class LocationManager: NSObject, ObservableObject {
-    private let locationManager = CLLocationManager()
-
-    @Published var region = MapCameraPosition.region(MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 29.766083, longitude: -95.358810),
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)))
-
-    override init() {
-        super.init()
-
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        setup()
-    }
-
-    func setup() {
-        switch locationManager.authorizationStatus {
-        // If we are authorized then we request location just once, to center the map
-        case .authorizedWhenInUse:
-            locationManager.requestLocation()
-        // If we don´t, we request authorization
-        case .notDetermined:
-            locationManager.startUpdatingLocation()
-            locationManager.requestWhenInUseAuthorization()
-        default:
-            break
-        }
-    }
-}
-
-extension LocationManager: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        guard .authorizedWhenInUse == manager.authorizationStatus else { return }
-        locationManager.requestLocation()
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Something went wrong: \(error)")
-    }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        locationManager.stopUpdatingLocation()
-        locations.last.map {
-            region = MapCameraPosition.region(MKCoordinateRegion(
-                center: $0.coordinate,
-                span: .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            ))
-        }
-    }
-}
-
-// extension CLLocationCoordinate2D{
-//    static var userLocation: CLLocationCoordinate2D{
-//        return .init(latitude: 29.766083, longitude: -95.358810)
-//    }
-// }
-//
-// extension MKCoordinateRegion{
-//    static var userRegion: MKCoordinateRegion{
-//        return .init(center: .userLocation,
-//                     latitudinalMeters:1000,
-//                     longitudinalMeters:1000)
-//    }
-// }
 
 #Preview {
     HomeScreen()

@@ -19,6 +19,7 @@
 		877314642AE338D200E2FFEA /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877314632AE338D200E2FFEA /* HomeScreen.swift */; };
 		877314672AE3396200E2FFEA /* BuildingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877314662AE3396200E2FFEA /* BuildingScreen.swift */; };
 		8773146A2AE339B400E2FFEA /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877314692AE339B400E2FFEA /* ProfileScreen.swift */; };
+		87D161892AECBD6C005E5C96 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D161882AECBD6C005E5C96 /* LocationManager.swift */; };
 		87E64ED52AE1B2F400DEC2A8 /* Coog_PathApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E64ED42AE1B2F400DEC2A8 /* Coog_PathApp.swift */; };
 		87E64ED72AE1B2F400DEC2A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E64ED62AE1B2F400DEC2A8 /* ContentView.swift */; };
 		87E64ED92AE1B2F600DEC2A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E64ED82AE1B2F600DEC2A8 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		877314632AE338D200E2FFEA /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		877314662AE3396200E2FFEA /* BuildingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingScreen.swift; sourceTree = "<group>"; };
 		877314692AE339B400E2FFEA /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		87D161882AECBD6C005E5C96 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		87E64ED12AE1B2F400DEC2A8 /* Coog Path.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coog Path.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E64ED42AE1B2F400DEC2A8 /* Coog_PathApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coog_PathApp.swift; sourceTree = "<group>"; };
 		87E64ED62AE1B2F400DEC2A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		877314622AE337DD00E2FFEA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				87D161882AECBD6C005E5C96 /* LocationManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				877314642AE338D200E2FFEA /* HomeScreen.swift in Sources */,
 				8713AA732AE4DCAD00418AA5 /* BuildingDetailScreen.swift in Sources */,
 				8773146A2AE339B400E2FFEA /* ProfileScreen.swift in Sources */,
+				87D161892AECBD6C005E5C96 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
