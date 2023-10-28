@@ -75,10 +75,10 @@ struct HomeScreen: View {
                     MapUserLocationButton(scope: mapScope)
                     MapPitchToggle(scope: mapScope)
                     MapCompass(scope: mapScope)
-                        .mapControlVisibility(.visible)
+                        .mapControlVisibility(.automatic)
                 }
+                .buttonBorderShape(.roundedRectangle)
                 .padding()
-                .buttonBorderShape(.circle)
             }
             .mapScope(mapScope)
             .onChange(of: toLocation) {
