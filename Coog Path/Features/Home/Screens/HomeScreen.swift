@@ -64,22 +64,17 @@ struct HomeScreen: View {
                                 TextField(
                                     "Search building",
                                     text: $buildingVM.searchDestinationForMap
-                                    
                                 )
-                                //.focusable(!buildingVM.searchDestinationForMap.isEmpty)
                                 .focused($isFocused)
                                 .textFieldStyle(.plain)
-                                if !buildingVM.searchDestinationForMap.isEmpty{
+                                if !buildingVM.searchDestinationForMap.isEmpty {
                                     Button {
                                         buildingVM.searchDestinationForMap = ""
                                         isFocused.toggle()
                                     } label: {
                                         Image(systemName: "xmark.circle.fill")
                                     }
-
                                 }
-                                
-
                             }
                             .padding(7)
                             .background(Color.white)
