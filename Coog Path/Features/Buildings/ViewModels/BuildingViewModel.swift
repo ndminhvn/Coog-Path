@@ -10,6 +10,7 @@ import Foundation
 class BuildingViewModel: ObservableObject {
     @Published var buildings = [Building]()
     @Published var searchText: String = ""
+    @Published var searchDestinationForMap: String = ""
 
     func loadData() {
         if let url = Bundle.main.url(forResource: "building_list", withExtension: "json") {
@@ -41,6 +42,20 @@ class BuildingViewModel: ObservableObject {
 
         filteredList.sort { $0.Abbr < $1.Abbr }
 
+        return filteredList
+    }
+
+    var filteredBuildingsForMap: [Building] {
+        var filteredList : [Building] = []
+
+        if !searchDestinationForMap.isEmpty {
+            filteredList = buildings.filter { building in
+                building.Name.lowercased().contains(searchDestinationForMap.lowercased())
+                    || building.Abbr.lowercased().contains(searchDestinationForMap.lowercased())
+            }
+
+            filteredList.sort { $0.Abbr < $1.Abbr }
+        }
         return filteredList
     }
 }
