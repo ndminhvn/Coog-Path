@@ -11,9 +11,11 @@ import SwiftUI
 struct HomeScreen: View {
     @State private var fromLocation: String = ""
     @State private var toLocation: String = ""
+    @FocusState private var isFocused: Bool
     @Namespace var mapScope
 
     @StateObject var manager = LocationManager()
+    @ObservedObject var buildingVM = BuildingViewModel()
 
     var body: some View {
         VStack {
@@ -25,7 +27,7 @@ struct HomeScreen: View {
                 Spacer()
             }
             Spacer()
-            
+
             // Map stack
             Map(position: $manager.position, scope: mapScope) {
 //                Marker("UH", coordinate: CLLocationCoordinate2D(latitude: 29.72001, longitude: -95.34207))
@@ -46,7 +48,7 @@ struct HomeScreen: View {
                             text: $fromLocation
                         )
                     }
-                    
+
                     // Going to stack
                     VStack {
                         HStack {
@@ -55,10 +57,66 @@ struct HomeScreen: View {
                                 .font(.system(size: 20))
                             Spacer()
                         }
-                        TextField(
-                            "Search building",
-                            text: $toLocation
-                        )
+                        HStack {
+                            HStack {
+                                Image(systemName: "magnifyingglass")
+                                    .opacity(0.5)
+                                TextField(
+                                    "Search building",
+                                    text: $buildingVM.searchDestinationForMap
+                                    
+                                )
+                                //.focusable(!buildingVM.searchDestinationForMap.isEmpty)
+                                .focused($isFocused)
+                                .textFieldStyle(.plain)
+                                if !buildingVM.searchDestinationForMap.isEmpty{
+                                    Button {
+                                        buildingVM.searchDestinationForMap = ""
+                                        isFocused.toggle()
+                                    } label: {
+                                        Image(systemName: "xmark.circle.fill")
+                                    }
+
+                                }
+                                
+
+                            }
+                            .padding(7)
+                            .background(Color.white)
+                            .clipShape(.rect(cornerRadius: 6))
+
+                            if !buildingVM.searchDestinationForMap.isEmpty {
+                                Button {
+                                    buildingVM.searchDestinationForMap = ""
+                                    isFocused.toggle()
+                                } label: {
+                                    Text("Cancel")
+                                }
+                            }
+                        }
+
+                        if !buildingVM.searchDestinationForMap.isEmpty {
+                            List {
+                                ForEach(buildingVM.filteredBuildingsForMap) { building in
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            Text(building.Abbr)
+                                                .bold()
+                                                .font(.system(size: 20))
+                                            Text(building.Name)
+                                                .font(.system(size: 15))
+                                        }
+                                        Spacer()
+                                    }
+                                }
+                            }
+                            .listStyle(.plain)
+                            .onAppear {
+                                Task {
+                                    buildingVM.loadData()
+                                }
+                            }
+                        }
                     }
                 }
                 .textFieldStyle(.roundedBorder)
@@ -81,7 +139,7 @@ struct HomeScreen: View {
                 manager.position = .automatic
             }
             .clipShape(.rect(cornerRadius: 16))
-            
+
             // Red button
             // NOTE: Display the button based on value of destination box - TEMPORARY.
             // TODO: Display the button if find a valid destination.
