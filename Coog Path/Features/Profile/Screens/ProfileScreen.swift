@@ -56,6 +56,12 @@ struct ProfileScreen: View {
                                 }
                             }
                         }
+                        .onMove(perform: { indices, newOffset in
+                            viewModel.move(from: indices, to: newOffset)
+                        })
+                        .onDelete(perform: { indexSet in
+                            viewModel.delete(at: indexSet)
+                        })
                     }
                     .toolbar {
                         EditButton()
