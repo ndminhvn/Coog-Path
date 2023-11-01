@@ -2,911 +2,1457 @@
     {
         "Number": "101",
         "Abbr": "CRW",
-        "Name": "Chancellor's Residence Wortham House"
+        "Name": "Chancellor's Residence Wortham House",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "104",
         "Abbr": "P2",
-        "Name": "KUHT Fiber Optics Building"
+        "Name": "KUHT Fiber Optics Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "105",
         "Abbr": "TVTE",
-        "Name": "KUHT Telephone Equipment"
+        "Name": "KUHT Telephone Equipment",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "106",
         "Abbr": "TV",
-        "Name": "Texas Learning & Computational Center Annex"
+        "Name": "Texas Learning & Computational Center Annex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "108",
         "Abbr": "P1",
-        "Name": "Cullen Annex Laboratory"
+        "Name": "Cullen Annex Laboratory",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "111",
         "Abbr": "DYN",
-        "Name": "Dynamometer Test Laboratory"
+        "Name": "Dynamometer Test Laboratory",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "115",
         "Abbr": "OFGR",
-        "Name": "Office of Governmental Relations"
+        "Name": "Office of Governmental Relations",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "116",
         "Abbr": "ACT",
-        "Name": "Safety, Human Factors & Ergonomic Laboratory"
+        "Name": "Safety, Human Factors & Ergonomic Laboratory",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "117",
         "Abbr": "TVFB",
-        "Name": "KUHT TV at Fort Bend - Tower"
+        "Name": "KUHT TV at Fort Bend - Tower",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "118",
         "Abbr": "WRCH",
-        "Name": "Wortham Residence Coach House"
+        "Name": "Wortham Residence Coach House",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "119",
         "Abbr": "ACTA",
-        "Name": "Texas Manufacturing Assistance Center"
+        "Name": "Texas Manufacturing Assistance Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "120",
         "Abbr": "UHFB",
-        "Name": "Albert and Mamie George Building"
+        "Name": "Albert and Mamie George Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "121",
         "Abbr": "FBA2",
-        "Name": "Brazos Hall"
+        "Name": "Brazos Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "122",
         "Abbr": "UBL",
-        "Name": "University Branch Library (UHS-Sugar Land)"
+        "Name": "University Branch Library (UHS-Sugar Land)",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "122",
         "Abbr": "KAB1",
-        "Name": "Katy Academic Building"
+        "Name": "Katy Academic Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "125",
         "Abbr": "WHS",
-        "Name": "Wortham House Storage"
+        "Name": "Wortham House Storage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "126",
         "Abbr": "SA1",
-        "Name": "Sugar Land Annex 1"
+        "Name": "Sugar Land Annex 1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "127",
         "Abbr": "SA2",
-        "Name": "Sugar Land Annex 2"
+        "Name": "Sugar Land Annex 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "128",
         "Abbr": "SA3",
-        "Name": "Sugar Land Annex 3"
+        "Name": "Sugar Land Annex 3",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "129",
         "Abbr": "SLAB1",
-        "Name": "Sugar Land Academic Building"
+        "Name": "Sugar Land Academic Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "199",
         "Abbr": "CRSA",
-        "Name": "Clinical Research Services Annex"
+        "Name": "Clinical Research Services Annex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "400",
         "Abbr": "CSS",
-        "Name": "Cougar Sub-Station"
+        "Name": "Cougar Sub-Station",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "401",
         "Abbr": "ERP1",
-        "Name": "Technology Bridge 1"
+        "Name": "Technology Bridge 1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "402",
         "Abbr": "ERP2",
-        "Name": "Technology Bridge 2"
+        "Name": "Technology Bridge 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "403",
         "Abbr": "ERP3",
-        "Name": "Technology Bridge 3"
+        "Name": "Technology Bridge 3",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "404",
         "Abbr": "ERP4",
-        "Name": "Technology Bridge 4 Conference & Research Building"
+        "Name": "Technology Bridge 4 Conference & Research Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "405",
         "Abbr": "ERP5",
-        "Name": "Technology Bridge 5"
+        "Name": "Technology Bridge 5",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "406",
         "Abbr": "ERP6",
-        "Name": "Technology Bridge 6"
+        "Name": "Technology Bridge 6",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "407",
         "Abbr": "ERP7",
-        "Name": "Technology Bridge 7"
+        "Name": "Technology Bridge 7",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "408",
         "Abbr": "ERP8",
-        "Name": "Technology Bridge 8"
+        "Name": "Technology Bridge 8",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "409",
         "Abbr": "ERP9",
-        "Name": "Technology Bridge 9 ConocoPhillips Petroleum Engineering Building"
+        "Name": "Technology Bridge 9 ConocoPhillips Petroleum Engineering Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "410",
         "Abbr": "ERP10",
-        "Name": "Technology Bridge 10"
+        "Name": "Technology Bridge 10",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "411",
         "Abbr": "ERP11",
-        "Name": "Technology Bridge 11"
+        "Name": "Technology Bridge 11",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "413",
         "Abbr": "ERP13",
-        "Name": "Technology Bridge 13"
+        "Name": "Technology Bridge 13",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "414",
         "Abbr": "ERP14",
-        "Name": "Technology Bridge 14"
+        "Name": "Technology Bridge 14",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "415",
         "Abbr": "ERP15",
-        "Name": "Technology Bridge 15 Energy Device Fabrication Lab"
+        "Name": "Technology Bridge 15 Energy Device Fabrication Lab",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "419",
         "Abbr": "ERPA",
-        "Name": "Technology Bridge Annex"
+        "Name": "Technology Bridge Annex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "420",
         "Abbr": "ERP20",
-        "Name": "Technology Bridge Storage"
+        "Name": "Technology Bridge Storage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "475",
         "Abbr": "",
-        "Name": "Softball Batting Facility"
+        "Name": "Softball Batting Facility",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "0483*",
         "Abbr": "HBS2",
-        "Name": "Health 2* (Floors 1 & 2)"
+        "Name": "Health 2* (Floors 1 & 2)",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "0483*",
         "Abbr": "HBSB2",
-        "Name": "Health 2* (Floors 3 through 7)"
+        "Name": "Health 2* (Floors 3 through 7)",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "0483*",
         "Abbr": "LSCC",
-        "Name": "Health 2* - Lone Star Circle of Care"
+        "Name": "Health 2* - Lone Star Circle of Care",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "484",
         "Abbr": "ERB",
-        "Name": "Agrawal Engineering Research Building"
+        "Name": "Agrawal Engineering Research Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "485",
         "Abbr": "STAD",
-        "Name": "TDECU Stadium"
+        "Name": "TDECU Stadium",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "486",
         "Abbr": "ATL",
-        "Name": "Atmospheric Testing Laboratory"
+        "Name": "Atmospheric Testing Laboratory",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "487",
         "Abbr": "UCN",
-        "Name": "Student Center North"
+        "Name": "Student Center North",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "488",
         "Abbr": "SCP1",
-        "Name": "Central Plant Satellite"
+        "Name": "Central Plant Satellite",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "489",
         "Abbr": "KUHA2",
-        "Name": "KUHA - Renters Building"
+        "Name": "KUHA - Renters Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "490",
         "Abbr": "WCSG",
-        "Name": "Welcome Center Student Garage"
+        "Name": "Welcome Center Student Garage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "491",
         "Abbr": "KUHA",
-        "Name": "KUHA - Transmitter Building"
+        "Name": "KUHA - Transmitter Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "492",
         "Abbr": "SST",
-        "Name": "Cougar Softball Stadium Ticket Booth"
+        "Name": "Cougar Softball Stadium Ticket Booth",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "493",
         "Abbr": "SS",
-        "Name": "Cougar Softball Stadium"
+        "Name": "Cougar Softball Stadium",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "494",
         "Abbr": "AAA",
-        "Name": "Agnes Arnold Auditorium"
+        "Name": "Agnes Arnold Auditorium",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "495",
         "Abbr": "CPH",
-        "Name": "Cougar Place"
+        "Name": "Cougar Place",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "496",
         "Abbr": "CV2",
-        "Name": "Cougar Village 2"
+        "Name": "Cougar Village 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "497",
         "Abbr": "CW",
-        "Name": "Cougar Woods Dining Hall"
+        "Name": "Cougar Woods Dining Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "498",
         "Abbr": "DTF",
-        "Name": "Bulk Fueling Diesel Tank Farm"
+        "Name": "Bulk Fueling Diesel Tank Farm",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "499",
         "Abbr": "CBB",
-        "Name": "Classroom and Business Building"
+        "Name": "Classroom and Business Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "500",
         "Abbr": "BOA",
-        "Name": "Bayou Oaks Apartments"
+        "Name": "Bayou Oaks Apartments",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "502",
         "Abbr": "S",
-        "Name": "Science Building"
+        "Name": "Science Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "503",
         "Abbr": "T",
-        "Name": "Technology Annex"
+        "Name": "Technology Annex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "504",
         "Abbr": "CCC",
-        "Name": "Child Care Center"
+        "Name": "Child Care Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "505",
         "Abbr": "JDA",
-        "Name": "J. Davis Armistead"
+        "Name": "J. Davis Armistead",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "506",
         "Abbr": "COM",
-        "Name": "Jack J. Valenti School of Communication"
+        "Name": "Jack J. Valenti School of Communication",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "507",
         "Abbr": "WT",
-        "Name": "Cynthia Woods Mitchell Center for the Arts/Wortham Theatre"
+        "Name": "Cynthia Woods Mitchell Center for the Arts/Wortham Theatre",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "508",
         "Abbr": "T2",
-        "Name": "College of Technology Building"
+        "Name": "College of Technology Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "509",
         "Abbr": "L",
-        "Name": "M. D. Anderson Library"
+        "Name": "M. D. Anderson Library",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "513",
         "Abbr": "INF2",
-        "Name": "Visitor Information Booth 2"
+        "Name": "Visitor Information Booth 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "514",
         "Abbr": "EPS2",
-        "Name": "Fire & Life Safety - Storage"
+        "Name": "Fire & Life Safety - Storage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "515",
         "Abbr": "PP",
-        "Name": "Central Power Plant"
+        "Name": "Central Power Plant",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "516",
         "Abbr": "E",
-        "Name": "Ezekiel W. Cullen"
+        "Name": "Ezekiel W. Cullen",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "517",
         "Abbr": "A",
-        "Name": "Cullen Performance Hall"
+        "Name": "Cullen Performance Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "518",
         "Abbr": "CLA",
-        "Name": "University Lofts Apartments"
+        "Name": "University Lofts Apartments",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "519",
         "Abbr": "UHPD",
-        "Name": "Department of Public Safety - UH Police"
+        "Name": "Department of Public Safety - UH Police",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "520",
         "Abbr": "MSM",
-        "Name": "Rebecca & John J. Moores School of Music"
+        "Name": "Rebecca & John J. Moores School of Music",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "521",
         "Abbr": "GS",
-        "Name": "Grounds Storage Building"
+        "Name": "Grounds Storage Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "522",
         "Abbr": "CRWC",
-        "Name": "Campus Recreation & Wellness Center"
+        "Name": "Campus Recreation & Wellness Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "523",
         "Abbr": "AGL",
-        "Name": "Science & Engineering Annex"
+        "Name": "Science & Engineering Annex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "524",
         "Abbr": "SSC",
-        "Name": "Student Service Center 1"
+        "Name": "Student Service Center 1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "526",
         "Abbr": "SS2",
-        "Name": "Student Service Center 2"
+        "Name": "Student Service Center 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "527",
         "Abbr": "EPS3",
-        "Name": "EHRM1"
+        "Name": "EHRM1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "528",
         "Abbr": "MH",
-        "Name": "LeRoy & Lucile Melcher Hall"
+        "Name": "LeRoy & Lucile Melcher Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "529",
         "Abbr": "SEC",
-        "Name": "Science & Engineering Classroom Building"
+        "Name": "Science & Engineering Classroom Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "531",
         "Abbr": "HP",
-        "Name": "Fertitta Center"
+        "Name": "Fertitta Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "532",
         "Abbr": "GAR",
-        "Name": "Susanna Garrison Gymnasium"
+        "Name": "Susanna Garrison Gymnasium",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "533",
         "Abbr": "MEL",
-        "Name": "Melcher Gymnasium/Charter School"
+        "Name": "Melcher Gymnasium/Charter School",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "534",
         "Abbr": "H",
-        "Name": "Fred J. Heyne"
+        "Name": "Fred J. Heyne",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "535",
         "Abbr": "EPS1",
-        "Name": "EHRM2"
+        "Name": "EHRM2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "536",
         "Abbr": "CPB",
-        "Name": "LeRoy & Lucile Melcher Center for Public Broadcasting"
+        "Name": "LeRoy & Lucile Melcher Center for Public Broadcasting",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "537",
         "Abbr": "BL",
-        "Name": "Bates Law"
+        "Name": "Bates Law",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "538",
         "Abbr": "TU2",
-        "Name": "Teaching Unit 2 Building"
+        "Name": "Teaching Unit 2 Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "539",
         "Abbr": "KH",
-        "Name": "Max Krost Hall"
+        "Name": "Max Krost Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "540",
         "Abbr": "LL",
-        "Name": "John M. O'Quinn Law Library"
+        "Name": "John M. O'Quinn Law Library",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "541",
         "Abbr": "UTS",
-        "Name": "Utility Tunnel System"
+        "Name": "Utility Tunnel System",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "542",
         "Abbr": "SPA",
-        "Name": "South Park Annex"
+        "Name": "South Park Annex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "543",
         "Abbr": "ARC",
-        "Name": "Gerald D. Hines College of Architecture"
+        "Name": "Gerald D. Hines College of Architecture",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "544",
         "Abbr": "CEMO",
-        "Name": "Michael J. Cemo Hall"
+        "Name": "Michael J. Cemo Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "545",
         "Abbr": "SERC",
-        "Name": "Science & Engineering Research Center"
+        "Name": "Science & Engineering Research Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "546",
         "Abbr": "EPG",
-        "Name": "East Parking Garage"
+        "Name": "East Parking Garage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "547",
         "Abbr": "PGH",
-        "Name": "Philip Guthrie Hoffman Hall"
+        "Name": "Philip Guthrie Hoffman Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "548",
         "Abbr": "AMB",
-        "Name": "Athletics Maintenance Building"
+        "Name": "Athletics Maintenance Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "549",
         "Abbr": "SW",
-        "Name": "Graduate College of Social Work"
+        "Name": "Graduate College of Social Work",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "550",
         "Abbr": "SR",
-        "Name": "Science and Research 1"
+        "Name": "Science and Research 1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "551",
         "Abbr": "SR2",
-        "Name": "Science and Research 2"
+        "Name": "Science and Research 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "552",
         "Abbr": "BKD",
-        "Name": "Burdette Keeland Jr. Design & Exploration Center"
+        "Name": "Burdette Keeland Jr. Design & Exploration Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "0553*",
         "Abbr": "WC",
-        "Name": "Welcome Center Parking Garage*"
+        "Name": "Welcome Center Parking Garage*",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "560",
         "Abbr": "UPD",
-        "Name": "UH-DPS Parking Enforcement"
+        "Name": "UH-DPS Parking Enforcement",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "561",
         "Abbr": "CRWA",
-        "Name": "CRWC Annex"
+        "Name": "CRWC Annex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "562",
         "Abbr": "ADB",
-        "Name": "A. D. Bruce Religion Center"
+        "Name": "A. D. Bruce Religion Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "563",
         "Abbr": "CV",
-        "Name": "Cougar Village"
+        "Name": "Cougar Village",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "564",
         "Abbr": "F",
-        "Name": "Lamar Fleming, Jr."
+        "Name": "Lamar Fleming, Jr.",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "565",
         "Abbr": "UC",
-        "Name": "Student Center South"
+        "Name": "Student Center South",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "567",
         "Abbr": "UCS",
-        "Name": "Student Center Satellite"
+        "Name": "Student Center Satellite",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "568",
         "Abbr": "CSD",
-        "Name": "Justin Dart Jr. Center for Students with DisABILITIES"
+        "Name": "Justin Dart Jr. Center for Students with DisABILITIES",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "569",
         "Abbr": "CULLO",
-        "Name": "Cullen Oaks Apartments"
+        "Name": "Cullen Oaks Apartments",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "570",
         "Abbr": "BATC",
-        "Name": "Athletics Batting Cage"
+        "Name": "Athletics Batting Cage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "572",
         "Abbr": "GSS",
-        "Name": "General Services Storage Building"
+        "Name": "General Services Storage Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "573",
         "Abbr": "ALUM",
-        "Name": "Alumni Center"
+        "Name": "Alumni Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "574",
         "Abbr": "ATH2",
-        "Name": "Athletic Center"
+        "Name": "Athletic Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "575",
         "Abbr": "CO",
-        "Name": "Cambridge Oaks Apartments"
+        "Name": "Cambridge Oaks Apartments",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "576",
         "Abbr": "STL",
-        "Name": "Science Teaching Laboratory Building"
+        "Name": "Science Teaching Laboratory Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "578",
         "Abbr": "AH",
-        "Name": "Agnes Arnold Hall"
+        "Name": "Agnes Arnold Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "579",
         "Abbr": "D",
-        "Name": "Cullen College of Engineering 1"
+        "Name": "Cullen College of Engineering 1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "580",
         "Abbr": "D2",
-        "Name": "Engineering Lecture Hall"
+        "Name": "Engineering Lecture Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "581",
         "Abbr": "D3",
-        "Name": "Cullen College of Engineering 2"
+        "Name": "Cullen College of Engineering 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "582",
         "Abbr": "BF",
-        "Name": "Cougar Baseball Field"
+        "Name": "Cougar Baseball Field",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "583",
         "Abbr": "BFT",
-        "Name": "Cougar Baseball Field Ticket Booth"
+        "Name": "Cougar Baseball Field Ticket Booth",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "584",
         "Abbr": "MR",
-        "Name": "Moody Towers Residence Halls"
+        "Name": "Moody Towers Residence Halls",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "0584*",
         "Abbr": "MR",
-        "Name": "Moody Dining Commons"
+        "Name": "Moody Dining Commons",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "585",
         "Abbr": "GEN",
-        "Name": "General Services Building"
+        "Name": "General Services Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "0586*",
         "Abbr": "CAM",
-        "Name": "Isabel C. Cameron*"
+        "Name": "Isabel C. Cameron*",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "587",
         "Abbr": "FH",
-        "Name": "Stephen Power Farish Hall"
+        "Name": "Stephen Power Farish Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "588",
         "Abbr": "M",
-        "Name": "Charles F. McElhinney Hall"
+        "Name": "Charles F. McElhinney Hall",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "589",
         "Abbr": "FA",
-        "Name": "Fine Arts Building"
+        "Name": "Fine Arts Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "590",
         "Abbr": "CHC",
-        "Name": "Conrad Hilton College of Hotel & Restaurant Management"
+        "Name": "Conrad Hilton College of Hotel & Restaurant Management",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "591",
         "Abbr": "INF",
-        "Name": "Visitor Information Booth 1"
+        "Name": "Visitor Information Booth 1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "592",
         "Abbr": "HBS",
-        "Name": "Health 1"
+        "Name": "Health 1",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "593",
         "Abbr": "HSC",
-        "Name": "University of Houston Science Center"
+        "Name": "University of Houston Science Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "596",
         "Abbr": "CC",
-        "Name": "Computing Center"
+        "Name": "Computing Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "0597*",
         "Abbr": "SPG",
-        "Name": "Stadium Parking Garage*"
+        "Name": "Stadium Parking Garage*",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "598",
         "Abbr": "CRS",
-        "Name": "Clinical Research Services Center"
+        "Name": "Clinical Research Services Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "599",
         "Abbr": "CLTF",
-        "Name": "Carl Lewis International Track & Field Complex"
+        "Name": "Carl Lewis International Track & Field Complex",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "701",
         "Abbr": "PHA",
-        "Name": "College of Pharmacy Texas Medical Center"
+        "Name": "College of Pharmacy Texas Medical Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "702",
         "Abbr": "ABC",
-        "Name": "KUHF Transmitter Tower - ABC"
+        "Name": "KUHF Transmitter Tower - ABC",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "703",
         "Abbr": "KMJQ",
-        "Name": "KMJQ/KUHT Transmitter Building"
+        "Name": "KMJQ/KUHT Transmitter Building",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "705",
         "Abbr": "NWC",
-        "Name": "Northwest Campus"
+        "Name": "Northwest Campus",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "706",
         "Abbr": "FB1",
-        "Name": "Small Business Development Center - Rosenberg"
+        "Name": "Small Business Development Center - Rosenberg",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "709",
         "Abbr": "BV",
-        "Name": "Small Business Development Center - Bryan"
+        "Name": "Small Business Development Center - Bryan",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "710",
         "Abbr": "SBD",
-        "Name": "Small Business Development Center"
+        "Name": "Small Business Development Center",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "711",
         "Abbr": "ROCK",
-        "Name": "Rockwood House"
+        "Name": "Rockwood House",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "713",
         "Abbr": "CP1",
-        "Name": "Small Business Development Center - Bay City"
+        "Name": "Small Business Development Center - Bay City",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "714",
         "Abbr": "TMC2",
-        "Name": "Texas Medical Center 2"
+        "Name": "Texas Medical Center 2",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "715",
         "Abbr": "NWC10",
-        "Name": "Northwest Campus 10"
+        "Name": "Northwest Campus 10",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "720",
         "Abbr": "SBD2",
-        "Name": "Small Business Development Center - League City"
+        "Name": "Small Business Development Center - League City",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "750",
         "Abbr": "COCM",
-        "Name": "Coastal Center Caretaker Mobile Home"
+        "Name": "Coastal Center Caretaker Mobile Home",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "751",
         "Abbr": "COEL",
-        "Name": "Coastal Center Environmental Laboratory"
+        "Name": "Coastal Center Environmental Laboratory",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "752",
         "Abbr": "CORL",
-        "Name": "Coastal Center Research Laboratory"
+        "Name": "Coastal Center Research Laboratory",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "753",
         "Abbr": "COES",
-        "Name": "Coastal Center Equipment Storage"
+        "Name": "Coastal Center Equipment Storage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "756",
         "Abbr": "COIT",
-        "Name": "Coastal Center Residential IT Equipment"
+        "Name": "Coastal Center Residential IT Equipment",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "757",
         "Abbr": "GEOC",
-        "Name": "Geosciences Coastal Center IT Equipment"
+        "Name": "Geosciences Coastal Center IT Equipment",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "758",
         "Abbr": "CROK",
-        "Name": "Coastal Center Rock Saw Facility"
+        "Name": "Coastal Center Rock Saw Facility",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "759",
         "Abbr": "CRST",
-        "Name": "Coastal Center Rock Storage"
+        "Name": "Coastal Center Rock Storage",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "760",
         "Abbr": "CGRS",
-        "Name": "Coastal Center Greenhouse Service"
+        "Name": "Coastal Center Greenhouse Service",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "800",
         "Abbr": "CW",
-        "Name": "Campus Wide"
+        "Name": "Campus Wide",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "801",
         "Abbr": "LEP",
-        "Name": "Lynn Eusan Park"
+        "Name": "Lynn Eusan Park",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "802",
         "Abbr": "CFP",
-        "Name": "Cullen Family Plaza"
+        "Name": "Cullen Family Plaza",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "803",
         "Abbr": "BMG",
-        "Name": "Dr. Barnett Memorial Garden"
+        "Name": "Dr. Barnett Memorial Garden",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "804",
         "Abbr": "CCG",
-        "Name": "The Cougar Community Garden"
+        "Name": "The Cougar Community Garden",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "805",
         "Abbr": "MP",
-        "Name": "Meditation Pond"
+        "Name": "Meditation Pond",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "806",
         "Abbr": "LAG",
-        "Name": "Dena and Guy V. Lewis Azalea Garden"
+        "Name": "Dena and Guy V. Lewis Azalea Garden",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "807",
         "Abbr": "SRG",
-        "Name": "Margaret Sharpe Antique Rose Garden"
+        "Name": "Margaret Sharpe Antique Rose Garden",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "808",
         "Abbr": "TEN",
-        "Name": "Tennis Courts"
+        "Name": "Tennis Courts",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "809",
         "Abbr": "SF",
-        "Name": "Soccer Field"
+        "Name": "Soccer Field",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "820",
         "Abbr": "SK4A",
-        "Name": "Security Kiosk Lot 4A"
+        "Name": "Security Kiosk Lot 4A",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "821",
         "Abbr": "SK9C",
-        "Name": "Security Kiosk Lot 9C"
+        "Name": "Security Kiosk Lot 9C",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "822",
         "Abbr": "SK12A",
-        "Name": "Security Kiosk Lot 12A"
+        "Name": "Security Kiosk Lot 12A",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "823",
         "Abbr": "SK41",
-        "Name": "Security Kiosk Lot 41 (ERP)"
+        "Name": "Security Kiosk Lot 41 (ERP)",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "824",
         "Abbr": "SK42",
-        "Name": "Security Kiosk Lot 42 (ERP)"
+        "Name": "Security Kiosk Lot 42 (ERP)",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "129",
         "Abbr": "PG5",
-        "Name": "Parking Garage #5"
+        "Name": "Parking Garage #5",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "482",
         "Abbr": "BPF",
-        "Name": "New Basketball Practice Facility"
+        "Name": "New Basketball Practice Facility",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "501",
         "Abbr": "C",
-        "Name": "Roy G. Cullen"
+        "Name": "Roy G. Cullen",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     },
     {
         "Number": "502",
         "Abbr": "S",
-        "Name": "Biology Greenhouse (Science Building)"
+        "Name": "Biology Greenhouse (Science Building)",
+        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
+        "Address": "3551 Cullen Blvd., Houston, TX 77204",
+        "SampleRoomNumbers": ["232", "563"]
     }
 ]

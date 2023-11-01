@@ -14,7 +14,7 @@ struct BuildingScreen: View {
         NavigationStack {
             List {
                 ForEach(viewModel.filteredBuildings) { building in
-                    NavigationLink(destination: BuildingDetailScreen()) {
+                    NavigationLink(destination: BuildingDetailScreen(building: building)) {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text(building.Abbr)
