@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileScreen: View {
     @ObservedObject var viewModel = ProfileViewModel()
     @State private var showingEditProfileSheet = false
+    @State private var showingAddClassSheet = false
 
     var body: some View {
         VStack {
@@ -43,16 +44,16 @@ struct ProfileScreen: View {
                         ForEach(viewModel.savedClasses) { course in
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text(course.name)
+                                    Text("\(course.name)")
                                         .fontWeight(.semibold)
                                         .font(.system(size: 20))
-                                    Text("\(course.building) \(course.room)")
+                                    Text("\(course.roomNumber)")
                                 }
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    Text(course.date)
+                                    Text("\(course.date1) \(course.date2 ?? "") \(course.date2 ?? "")")
                                         .fontWeight(.medium)
-                                    Text(course.time)
+                                    Text("\(course.timeFrom) - \(course.timeTo)")
                                 }
                             }
                         }
@@ -82,6 +83,19 @@ struct ProfileScreen: View {
                     }
                     .scrollContentBackground(.hidden)
                     .listStyle(.plain)
+                    Button {
+                        showingAddClassSheet.toggle()
+                    } label: {
+                        Label {
+                            Text("Add class")
+                        } icon: {
+                            Image(systemName: "plus.circle")
+                        }
+                        .font(.title2)
+                    }
+                    .sheet(isPresented: $showingAddClassSheet) {
+                        AddClassScreen(viewModel: viewModel)
+                    }
                 }
             }
             Spacer()
