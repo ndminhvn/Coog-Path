@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import MapKit
+import SwiftUI
 
 class BuildingViewModel: ObservableObject {
     @Published var buildings = [Building]()
     @Published var searchText: String = ""
     @Published var searchDestinationForMap: String = ""
-
+    @Published var searchResults: [MKMapItem] = []
+    @StateObject var locationManager = LocationManager()
     func loadData() {
         if let url = Bundle.main.url(forResource: "building_list", withExtension: "json") {
             do {
@@ -57,5 +60,28 @@ class BuildingViewModel: ObservableObject {
             filteredList.sort { $0.Abbr < $1.Abbr }
         }
         return filteredList
+    }
+    
+    // show building annotation on map
+    func searchBuilding() async {
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = searchDestinationForMap
+        request.region = locationManager.myRegion
+        let results = try? await MKLocalSearch(request: request).start()
+        searchResults = results?.mapItems ?? []
+    }
+    // fetching route
+    func fetchRoute() async -> MKRoute {
+        
+        let defaultRoute = MKRoute()
+        let request = MKDirections.Request()
+        request.source = .init(placemark: .init(coordinate: locationManager.myLocation))
+        request.destination = searchResults[0]
+        print(searchResults[0].placemark)
+        request.transportType = .walking
+        
+        let result = try? await MKDirections(request: request).calculate()
+        return result?.routes.first ?? defaultRoute
+        
     }
 }
