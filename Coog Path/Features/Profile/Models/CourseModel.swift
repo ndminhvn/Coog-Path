@@ -10,8 +10,12 @@ import Foundation
 struct Course: Identifiable {
     var id = UUID()
     var name: String
-    var building: String
-    var room: String
-    var date: String
-    var time: String
+    var roomNumber: String
+    var building: String?
+    var room: String?
+    var date1: String
+    var date2: String?
+    var date3: String?
+    var timeFrom: String
+    var timeTo: String
 }
