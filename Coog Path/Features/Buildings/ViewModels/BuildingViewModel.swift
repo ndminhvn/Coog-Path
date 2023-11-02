@@ -49,7 +49,7 @@ class BuildingViewModel: ObservableObject {
     }
 
     var filteredBuildingsForMap: [Building] {
-        var filteredList : [Building] = []
+        var filteredList: [Building] = []
 
         if !searchDestinationForMap.isEmpty {
             filteredList = buildings.filter { building in
@@ -61,7 +61,7 @@ class BuildingViewModel: ObservableObject {
         }
         return filteredList
     }
-    
+
     // show building annotation on map
     func searchBuilding() async {
         let request = MKLocalSearch.Request()
@@ -70,18 +70,17 @@ class BuildingViewModel: ObservableObject {
         let results = try? await MKLocalSearch(request: request).start()
         searchResults = results?.mapItems ?? []
     }
+
     // fetching route
     func fetchRoute() async -> MKRoute {
-        
         let defaultRoute = MKRoute()
         let request = MKDirections.Request()
         request.source = .init(placemark: .init(coordinate: locationManager.myLocation))
         request.destination = searchResults[0]
         print(searchResults[0].placemark)
         request.transportType = .walking
-        
+
         let result = try? await MKDirections(request: request).calculate()
         return result?.routes.first ?? defaultRoute
-        
     }
 }

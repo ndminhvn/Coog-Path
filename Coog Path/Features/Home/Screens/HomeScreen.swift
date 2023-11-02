@@ -9,8 +9,7 @@ import MapKit
 import SwiftUI
 
 struct HomeScreen: View {
-    
-    //Search text field properties
+    // Search text field properties
     @State private var fromLocation: String = ""
     @State private var destinationLocation: String = "" // Destination
     @State private var searchResults: [MKMapItem] = []
@@ -35,18 +34,17 @@ struct HomeScreen: View {
 
             // Map stack
             Map(position: $locationManager.myPosition, scope: mapScope) {
-//                Marker("UH", coordinate: CLLocationCoordinate2D(latitude: 29.72001, longitude: -95.34207))
-                ForEach(buildingVM.searchResults, id: \.self){ mapItem in
+                ForEach(buildingVM.searchResults, id: \.self) { mapItem in
                     let placemark = mapItem.placemark
                     Marker(destinationLocation, coordinate: placemark.coordinate)
                         .tint(Color("MainColor"))
                 }
-                //Display route using polyline
-                if !isFocused, let route{
+                // Display route using polyline
+                if !isFocused, let route {
                     MapPolyline(route.polyline)
-                        .stroke(Color("MainColor"), lineWidth:7)
+                        .stroke(Color("MainColor"), lineWidth: 7)
                 }
-                
+
                 UserAnnotation()
             }
             .overlay(alignment: .topLeading) {
@@ -67,14 +65,13 @@ struct HomeScreen: View {
 
                     // Going to stack
                     VStack {
-    
                         HStack {
                             Text("Going to")
                                 .bold()
                                 .font(.system(size: 20))
                             Spacer()
                         }
-                        
+
                         // Search building text field
                         HStack {
                             HStack {
@@ -86,19 +83,7 @@ struct HomeScreen: View {
                                 )
                                 .focused($isFocused)
                                 .textFieldStyle(.plain)
-//                                .onSubmit {
-//                                    // dismiss list
-//                                    // trigger search function
-//                                    // show marker on map
-//                                    // show let's run button
-//                                    isFocused = false
-//                                    print(buildingVM.filteredBuildingsForMap)
-//                                    Task{
-//                                        guard !buildingVM.searchDestinationForMap.isEmpty else {return}
-//                                        await buildingVM.searchBuilding()
-//                                    }
-//                                }
-                                
+
                                 // Dismiss search list when user click x symbol
                                 if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
                                     Button {
@@ -109,7 +94,7 @@ struct HomeScreen: View {
                                         Image(systemName: "xmark.circle.fill")
                                     }
                                 }
-                                
+
                                 // Dismiss seach list when user click "cancel" button
                                 if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
                                     Button {
@@ -125,7 +110,7 @@ struct HomeScreen: View {
                             .background(Color.white)
                             .clipShape(.rect(cornerRadius: 6))
                         }
-                        
+
                         // Show list of valid building name
                         if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
                             List {
@@ -140,16 +125,16 @@ struct HomeScreen: View {
                                         }
                                         Spacer()
                                     }
-                                    //When user pick a destination building
+                                    // When user pick a destination building
                                     .onTapGesture {
                                         buildingVM.searchDestinationForMap = building.Name
                                         isFocused = false
                                         destinationLocation = buildingVM.searchDestinationForMap
-                                        Task{
-                                            guard !buildingVM.searchDestinationForMap.isEmpty else {return}
-                                            await buildingVM.searchBuilding() //Place marker
-                                            route = await buildingVM.fetchRoute() //Show polyline
-                                            withAnimation(.snappy){
+                                        Task {
+                                            guard !buildingVM.searchDestinationForMap.isEmpty else { return }
+                                            await buildingVM.searchBuilding() // Place marker
+                                            route = await buildingVM.fetchRoute() // Show polyline
+                                            withAnimation(.snappy) {
                                                 routeDisplaying = true
                                             }
                                         }
