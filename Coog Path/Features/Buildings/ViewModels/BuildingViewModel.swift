@@ -14,7 +14,7 @@ class BuildingViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var searchDestinationForMap: String = ""
     @Published var searchResults: [MKMapItem] = []
-    @StateObject var locationManager = LocationManager()
+    @ObservedObject var locationManager = LocationManager()
     func loadData() {
         if let url = Bundle.main.url(forResource: "building_list", withExtension: "json") {
             do {
