@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Course: Identifiable {
+@Model
+class Course: Identifiable {
     var id = UUID()
     var name: String
     var roomNumber: String
@@ -18,4 +20,13 @@ struct Course: Identifiable {
     var date3: String?
     var timeFrom: String
     var timeTo: String
+    
+    init(id: UUID = UUID(), name: String, building: String, room: String, date: String, time: String) {
+        self.id = id
+        self.name = name
+        self.building = building
+        self.room = room
+        self.date = date
+        self.time = time
+    }
 }

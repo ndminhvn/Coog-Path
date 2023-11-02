@@ -5,12 +5,15 @@
 //  Created by Minh Nguyen on 10/22/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct EditProfileScreen: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) private var modelContext
     @ObservedObject var viewModel: ProfileViewModel
     @State var newName: String = ""
+    @Query var profiles: [Profile]
     
     var displayedName: String {
         return newName.isEmpty ? viewModel.name : newName
@@ -50,6 +53,7 @@ struct EditProfileScreen: View {
                 Button(action: {
                     viewModel.updateName(name: newName)
                     dismiss()
+                    profiles[0].name = newName
                 }) {
                     Text("Update Profile")
                         .font(.title3)

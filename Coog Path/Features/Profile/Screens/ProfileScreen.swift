@@ -5,12 +5,15 @@
 //  Created by Minh Nguyen on 10/20/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ProfileScreen: View {
+    @Environment(\.modelContext) private var modelContext
     @ObservedObject var viewModel = ProfileViewModel()
     @State private var showingEditProfileSheet = false
     @State private var showingAddClassSheet = false
+    @Query var profiles: [Profile]
 
     var body: some View {
         VStack {
@@ -34,35 +37,39 @@ struct ProfileScreen: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 70)
-                Text(viewModel.name)
-                    .font(.title)
-                    .fontWeight(.semibold)
+                if !profiles.isEmpty {
+                    Text(profiles[0].name)
+                        .font(.title)
+                        .fontWeight(.semibold)
+                }
             }
             VStack {
                 NavigationStack {
                     List {
-                        ForEach(viewModel.savedClasses) { course in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text("\(course.name)")
-                                        .fontWeight(.semibold)
-                                        .font(.system(size: 20))
-                                    Text("\(course.roomNumber)")
-                                }
-                                Spacer()
-                                VStack(alignment: .trailing) {
-                                    Text("\(course.date1) \(course.date2 ?? "") \(course.date2 ?? "")")
-                                        .fontWeight(.medium)
-                                    Text("\(course.timeFrom) - \(course.timeTo)")
+                        if !profiles.isEmpty {
+                            ForEach(profiles[0].savedClasses) { course in
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text("\(course.name)")
+                                            .fontWeight(.semibold)
+                                            .font(.system(size: 20))
+                                        Text("\(course.roomNumber)")
+                                    }
+                                    Spacer()
+                                    VStack(alignment: .trailing) {
+                                        Text("\(course.date1) \(course.date2 ?? "") \(course.date2 ?? "")")
+                                            .fontWeight(.medium)
+                                        Text("\(course.timeFrom) - \(course.timeTo)")
+                                    }
                                 }
                             }
+                            .onMove(perform: { indices, newOffset in
+                                viewModel.move(from: indices, to: newOffset)
+                            })
+                            .onDelete(perform: { indexSet in
+                                viewModel.delete(at: indexSet)
+                            })
                         }
-                        .onMove(perform: { indices, newOffset in
-                            viewModel.move(from: indices, to: newOffset)
-                        })
-                        .onDelete(perform: { indexSet in
-                            viewModel.delete(at: indexSet)
-                        })
                     }
                     .toolbar {
                         EditButton()
@@ -96,9 +103,13 @@ struct ProfileScreen: View {
             Spacer()
         }
         .padding()
+        .onAppear(perform: {
+            modelContext.insert(Profile())
+        })
     }
 }
 
 #Preview {
     ProfileScreen()
+        .modelContainer(for: Profile.self)
 }

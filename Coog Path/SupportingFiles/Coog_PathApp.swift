@@ -5,6 +5,7 @@
 //  Created by Minh Nguyen on 10/19/23.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
@@ -13,5 +14,6 @@ struct Coog_PathApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Profile.self)
     }
 }

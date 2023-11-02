@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+//    @Environment(\.modelContext) private var modelContext
     var body: some View {
         TabView {
             HomeScreen()
@@ -29,4 +30,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+//        .modelContainer(for: Profile.self)
 }

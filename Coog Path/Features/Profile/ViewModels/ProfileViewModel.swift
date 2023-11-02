@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 class ProfileViewModel: ObservableObject {
     @Published var name: String = "Guest User"
