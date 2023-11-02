@@ -95,20 +95,21 @@ struct HomeScreen: View {
                                     }
                                 }
 
-                                // Dismiss seach list when user click "cancel" button
-                                if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
-                                    Button {
-                                        buildingVM.searchDestinationForMap = ""
-                                        route = nil
-                                        isFocused.toggle()
-                                    } label: {
-                                        Text("Cancel")
-                                    }
-                                }
+                                
                             }
                             .padding(7)
                             .background(Color.white)
                             .clipShape(.rect(cornerRadius: 6))
+                            // Dismiss seach list when user click "cancel" button
+                            if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
+                                Button {
+                                    buildingVM.searchDestinationForMap = ""
+                                    route = nil
+                                    isFocused.toggle()
+                                } label: {
+                                    Text("Cancel")
+                                }
+                            }
                         }
 
                         // Show list of valid building name
