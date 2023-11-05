@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BuildingScreen: View {
     @ObservedObject var viewModel = BuildingViewModel()
+    @State private var showFilterOptions: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -32,7 +33,25 @@ struct BuildingScreen: View {
                 }
             }
             .navigationTitle("Buildings")
-            .searchable(text: $viewModel.searchText)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Button {
+                        } label: {
+                            Label("All buildings", systemImage: "building")
+                        }
+                        Button {
+                        } label: {
+                            Label("Favorited", systemImage: "star")
+                        }
+
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                            .font(.title2)
+                    }
+                }
+            }
+            .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
             .onAppear {
                 Task {
                     viewModel.loadData()

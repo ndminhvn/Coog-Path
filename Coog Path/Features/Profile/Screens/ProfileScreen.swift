@@ -68,7 +68,6 @@ struct ProfileScreen: View {
                         EditButton()
                             .font(.title2)
                     }
-                    .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
                             HStack {
@@ -86,12 +85,8 @@ struct ProfileScreen: View {
                     Button {
                         showingAddClassSheet.toggle()
                     } label: {
-                        Label {
-                            Text("Add class")
-                        } icon: {
-                            Image(systemName: "plus.circle")
-                        }
-                        .font(.title2)
+                        Label("Add class", systemImage: "plus.circle")
+                            .font(.title2)
                     }
                     .sheet(isPresented: $showingAddClassSheet) {
                         AddClassScreen(viewModel: viewModel)
