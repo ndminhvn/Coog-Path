@@ -25,26 +25,29 @@ struct BuildingScreen: View {
                                     .font(.system(size: 15))
                             }
                             Spacer()
-                            Image(systemName: "arrow.triangle.turn.up.right.circle.fill")
-                                .font(.title2)
-                                .foregroundStyle(Color("MainColor").opacity(0.8))
+                            Button {
+                                print("Add to favorited")
+                            } label: {
+                                Image(systemName: "star")
+                                    .font(.title3)
+                                    .foregroundStyle(Color.main.opacity(0.8))
+                            }
                         }
                     }
                 }
             }
             .navigationTitle("Buildings")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Menu {
-                        Button {
-                        } label: {
-                            Label("All buildings", systemImage: "building")
+                        Section(header: Text("Filter")) {
+                            Picker(selection: $viewModel.filterOption) {
+                                Label("All buildings", systemImage: "building").tag("All buildings")
+                                Label("Favorited", systemImage: "star").tag("Favorited")
+                            } label: {
+                                Text("Filter")
+                            }
                         }
-                        Button {
-                        } label: {
-                            Label("Favorited", systemImage: "star")
-                        }
-
                     } label: {
                         Image(systemName: "line.3.horizontal.decrease.circle")
                             .font(.title2)
