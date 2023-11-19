@@ -25,13 +25,15 @@ struct BuildingScreen: View {
                                     .font(.system(size: 15))
                             }
                             Spacer()
-                            Button {
-                                print("Add to favorited")
-                            } label: {
-                                Image(systemName: "star")
-                                    .font(.title3)
-                                    .foregroundStyle(Color.main.opacity(0.8))
-                            }
+                        }
+                        .overlay(alignment: .trailing) {
+                            Image(systemName: "star")
+                                .font(.title3)
+                                .foregroundStyle(Color.main.opacity(0.8))
+                                .onTapGesture {
+                                    print("Add to favorited")
+                                    // Add your favorite logic here
+                                }
                         }
                     }
                 }
