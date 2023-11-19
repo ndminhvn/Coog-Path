@@ -10,6 +10,7 @@ import SwiftUI
 struct BuildingScreen: View {
     @ObservedObject var viewModel = BuildingViewModel()
     @State private var showFilterOptions: Bool = false
+    @State private var favoritedStates: [UUID: Bool] = [:]
 
     var body: some View {
         NavigationStack {
@@ -27,11 +28,12 @@ struct BuildingScreen: View {
                             Spacer()
                         }
                         .overlay(alignment: .trailing) {
-                            Image(systemName: "star")
+                            Image(systemName: favoritedStates[building.id] ?? false ? "star.fill" : "star")
                                 .font(.title3)
                                 .foregroundStyle(Color.main.opacity(0.8))
                                 .onTapGesture {
                                     print("Add to favorited")
+                                    toggleFavorite(for: building)
                                     // Add your favorite logic here
                                 }
                         }
@@ -63,6 +65,11 @@ struct BuildingScreen: View {
                 }
             }
         }
+    }
+    private func toggleFavorite(for building: Building) {
+        favoritedStates[building.id] = !(favoritedStates[building.id] ?? false)
+        print("Building \(building.Name) favorited state: \(favoritedStates[building.id] ?? false)")
+        // Add your favorite logic here
     }
 }
 
