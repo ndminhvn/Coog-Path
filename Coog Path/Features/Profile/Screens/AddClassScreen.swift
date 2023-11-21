@@ -74,7 +74,7 @@ struct AddClassScreen: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        viewModel.addCourse(course: Course(name: name, roomNumber: roomNumber, date1: date1, date2: date2, date3: date3, timeFrom: timeFrom.formatted(date: .omitted, time: .shortened), timeTo: timeTo.formatted(date: .omitted, time: .shortened)))
+                        viewModel.addCourse(course: Course(name: name, roomNumber: roomNumber, date1: date1, date2: date2, timeFrom: timeFrom.formatted(date: .omitted, time: .shortened), timeTo: timeTo.formatted(date: .omitted, time: .shortened)))
                         dismiss()
                     }, label: {
                         Text("Done")

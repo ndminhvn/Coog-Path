@@ -21,12 +21,13 @@ class Course: Identifiable {
     var timeFrom: String
     var timeTo: String
     
-    init(id: UUID = UUID(), name: String, building: String, room: String, date: String, time: String) {
+    init(id: UUID = UUID(), name: String, roomNumber: String, date1: String, date2: String?, timeFrom: String, timeTo: String) {
         self.id = id
         self.name = name
-        self.building = building
-        self.room = room
-        self.date = date
-        self.time = time
+        self.roomNumber = roomNumber
+        self.date1 = date1
+        self.date2 = date2
+        self.timeFrom = timeFrom
+        self.timeTo = timeTo
     }
 }
