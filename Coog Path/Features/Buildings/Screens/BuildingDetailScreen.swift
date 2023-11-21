@@ -40,12 +40,8 @@ struct BuildingDetailScreen: View {
                         .font(.headline)
                         .padding(.top, 30)
                     ForEach(building.SampleRoomNumbers, id: \.self) { room in
-                        Label {
-                            Text("\(building.Abbr) \(room)")
-                        } icon: {
-                            Image(systemName: "smallcircle.filled.circle")
-                        }
-                        .padding(.top, 5)
+                        Label("\(building.Abbr) \(room)", systemImage: "smallcircle.filled.circle")
+                            .padding(.top, 5)
                     }
                 }
                 VStack(alignment: .leading, spacing: 2) {

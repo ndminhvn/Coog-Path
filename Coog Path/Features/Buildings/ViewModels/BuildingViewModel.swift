@@ -11,10 +11,13 @@ import SwiftUI
 
 class BuildingViewModel: ObservableObject {
     @Published var buildings = [Building]()
+    @Published var favoritedBuilding = [Building]()
     @Published var searchText: String = ""
     @Published var searchDestinationForMap: String = ""
     @Published var searchResults: [MKMapItem] = []
+    @Published var filterOption: String = "All buildings"
     @ObservedObject var locationManager = LocationManager()
+
     func loadData() {
         if let url = Bundle.main.url(forResource: "building_list", withExtension: "json") {
             do {
@@ -34,12 +37,24 @@ class BuildingViewModel: ObservableObject {
     var filteredBuildings: [Building] {
         var filteredList: [Building]
 
-        if searchText.isEmpty {
-            filteredList = buildings
+        if filterOption == "All buildings" {
+            if searchText.isEmpty {
+                filteredList = buildings
+            } else {
+                filteredList = buildings.filter { building in
+                    building.Name.lowercased().contains(searchText.lowercased())
+                        || building.Abbr.lowercased().contains(searchText.lowercased())
+                }
+            }
         } else {
-            filteredList = buildings.filter { building in
-                building.Name.lowercased().contains(searchText.lowercased())
-                    || building.Abbr.lowercased().contains(searchText.lowercased())
+            if searchText.isEmpty {
+                // TODO: change to favorited list
+                filteredList = favoritedBuilding
+            } else {
+                filteredList = favoritedBuilding.filter { building in
+                    building.Name.lowercased().contains(searchText.lowercased())
+                        || building.Abbr.lowercased().contains(searchText.lowercased())
+                }
             }
         }
 
