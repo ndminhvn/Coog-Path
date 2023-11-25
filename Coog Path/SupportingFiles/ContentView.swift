@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @Environment(\.modelContext) private var modelContext
     var body: some View {
         TabView {
             HomeScreen()
@@ -24,11 +23,10 @@ struct ContentView: View {
                     Label("Profile", systemImage: "person")
                 }
         }
-        .tint(Color("MainColor"))
+        .tint(Color.main)
     }
 }
 
 #Preview {
     ContentView()
-//        .modelContainer(for: Profile.self)
 }
