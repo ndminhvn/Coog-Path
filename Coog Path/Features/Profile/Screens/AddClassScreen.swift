@@ -25,6 +25,11 @@ struct AddClassScreen: View {
 
     let dates = ["Select", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
+    private var isFormValid: Bool {
+        !name.isEmpty && !roomNumber.isEmpty && !date1.isEmpty
+            && !timeFrom.description.isEmpty && !timeTo.description.isEmpty
+    }
+
     var body: some View {
         NavigationStack {
             Text("Add Class")
@@ -80,6 +85,7 @@ struct AddClassScreen: View {
                     }, label: {
                         Text("Done")
                     })
+                    .disabled(!isFormValid)
                 }
             }
         }

@@ -21,16 +21,6 @@ class Course: Identifiable {
     var timeFrom: String
     var timeTo: String
 
-//    init(id: UUID = UUID(), name: String, roomNumber: String, date1: String, date2: String?, date3: String?, timeFrom: String, timeTo: String) {
-//        self.id = id
-//        self.name = name
-//        self.roomNumber = roomNumber
-//        self.date1 = date1
-//        self.date2 = date2
-//        self.date3 = date3
-//        self.timeFrom = timeFrom
-//        self.timeTo = timeTo
-//    }
     init(id: UUID = UUID(), name: String, roomNumber: String, building: String? = nil, room: String? = nil, date1: String, date2: String? = nil, date3: String? = nil, timeFrom: String, timeTo: String) {
         self.id = id
         self.name = name
