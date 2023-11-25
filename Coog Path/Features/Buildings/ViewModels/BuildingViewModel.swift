@@ -98,4 +98,9 @@ class BuildingViewModel: ObservableObject {
         let result = try? await MKDirections(request: request).calculate()
         return result?.routes.first ?? defaultRoute
     }
+    
+    // remove all search result
+    func removeSearchResults(){
+        searchResults.removeAll(keepingCapacity: false)
+    }
 }
