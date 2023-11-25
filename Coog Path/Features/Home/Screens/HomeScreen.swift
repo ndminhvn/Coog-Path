@@ -69,41 +69,44 @@ struct HomeScreen: View {
 
                     // Going to stack
                     VStack {
-                        HStack {
-                            Text("Destination")
-                                .bold()
-                                .font(.system(size: 20))
-                            Spacer()
-                        }
-
-                        // Search building text field
-                        HStack {
+                        if !routeDisplaying {
                             HStack {
-                                Image(systemName: "magnifyingglass")
-                                    .opacity(0.5)
-                                TextField(
-                                    "Search building",
-                                    text: $buildingVM.searchDestinationForMap
-                                )
-                                .focused($isFocused)
-                                .textFieldStyle(.plain)
+                                Text("Destination")
+                                    .bold()
+                                    .font(.system(size: 20))
+                                Spacer()
+                            }
 
-                                // Dismiss search list when user click x symbol
-                                if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
-                                    Button {
-                                        buildingVM.searchDestinationForMap = "" // Empty search bar
-                                        buildingVM.removeSearchResults() // Remove all results
-                                        searchResults = nil // search result for detail preview
-                                        route = nil // empty route
-                                        isFocused.toggle() // unfocus
-                                    } label: {
-                                        Image(systemName: "xmark.circle.fill")
+                            // Search building text field
+                            HStack {
+                                HStack {
+                                    Image(systemName: "magnifyingglass")
+                                        .opacity(0.5)
+                                    TextField(
+                                        "Search building",
+                                        text: $buildingVM.searchDestinationForMap
+                                    )
+                                    .focused($isFocused)
+                                    .textFieldStyle(.plain)
+
+                                    // Dismiss search list when user click x symbol
+                                    if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
+                                        Button {
+                                            buildingVM.searchDestinationForMap = "" // Empty search bar
+                                            buildingVM.removeSearchResults() // Remove all results
+                                            searchResults = nil // search result for detail preview
+                                            route = nil // empty route
+                                            isFocused.toggle() // unfocus
+                                        } label: {
+                                            Image(systemName: "xmark.circle.fill")
+                                        }
                                     }
                                 }
+                                .padding(7)
+                                .background(Color.white)
+                                .clipShape(.rect(cornerRadius: 6))
                             }
-                            .padding(7)
-                            .background(Color.white)
-                            .clipShape(.rect(cornerRadius: 6))
+
                             // Dismiss seach list when user click "cancel" button
                             if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
                                 Button {
@@ -190,6 +193,27 @@ struct HomeScreen: View {
                     .presentationCornerRadius(25)
                     .interactiveDismissDisabled(true)
             })
+            // End route button
+            .safeAreaInset(edge: .bottom) {
+                if routeDisplaying {
+                    Button(action: {
+                        withAnimation(.snappy) {
+                            routeDisplaying = false
+                            showDetails = true
+                            searchResults = buildingVM.searchResults[0]
+                            route = nil
+                        }
+                    }, label: {
+                        Text("End Route")
+                            .font(.title2)
+                            .bold()
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+                            .padding(.horizontal, 20)
+                            .foregroundStyle(.white)
+                    })
+                    .background(RoundedRectangle(cornerRadius: 16).fill(Color("MainColor")))
+                }
+            }
             .onChange(of: searchResults) {
                 locationManager.myPosition = .automatic
                 // Show preview detail if user pick a location
@@ -245,7 +269,7 @@ struct HomeScreen: View {
             }
             .frame(height: 200)
             .clipShape(.rect(cornerRadius: 15))
-            
+
             // Direction's button
             Button(action: {
                 Task {
@@ -274,4 +298,3 @@ struct HomeScreen: View {
 #Preview {
     HomeScreen()
 }
-
