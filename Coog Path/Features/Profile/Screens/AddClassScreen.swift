@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AddClassScreen: View {
+    @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: ProfileViewModel
+//    @ObservedObject var viewModel: ProfileViewModel
     @State private var name: String = ""
     @State private var roomNumber: String = ""
     @State private var date1: String = ""
@@ -23,6 +24,11 @@ struct AddClassScreen: View {
     }
 
     let dates = ["Select", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
+    private var isFormValid: Bool {
+        !name.isEmpty && !roomNumber.isEmpty && !date1.isEmpty
+            && !timeFrom.description.isEmpty && !timeTo.description.isEmpty
+    }
 
     var body: some View {
         NavigationStack {
@@ -74,11 +80,12 @@ struct AddClassScreen: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        viewModel.addCourse(course: Course(name: name, roomNumber: roomNumber, date1: date1, date2: date2, date3: date3, timeFrom: timeFrom.formatted(date: .omitted, time: .shortened), timeTo: timeTo.formatted(date: .omitted, time: .shortened)))
+                        modelContext.insert(Course(name: name, roomNumber: roomNumber, date1: date1, date2: date2, date3: date3, timeFrom: timeFrom.formatted(date: .omitted, time: .shortened), timeTo: timeTo.formatted(date: .omitted, time: .shortened)))
                         dismiss()
                     }, label: {
                         Text("Done")
                     })
+                    .disabled(!isFormValid)
                 }
             }
         }
@@ -86,5 +93,5 @@ struct AddClassScreen: View {
 }
 
 #Preview {
-    AddClassScreen(viewModel: ProfileViewModel())
+    AddClassScreen()
 }

@@ -5,17 +5,20 @@
 //  Created by Minh Nguyen on 10/22/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct EditProfileScreen: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel: ProfileViewModel
+    @Environment(\.modelContext) private var modelContext
+//    @ObservedObject var viewModel: ProfileViewModel
     @State var newName: String = ""
-    
+    @Query var profiles: [Profile]
+
     var displayedName: String {
-        return newName.isEmpty ? viewModel.name : newName
+        return newName.isEmpty ? profiles[0].name : newName
     }
-    
+
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
@@ -30,7 +33,7 @@ struct EditProfileScreen: View {
                     .padding()
             }
             Spacer()
-            
+
             VStack {
                 Text("Display Name")
                     .bold()
@@ -45,10 +48,10 @@ struct EditProfileScreen: View {
             }
             Spacer()
             Spacer()
-            
+
             VStack {
                 Button(action: {
-                    viewModel.updateName(name: newName)
+                    profiles[0].name = newName
                     dismiss()
                 }) {
                     Text("Update Profile")
@@ -58,9 +61,9 @@ struct EditProfileScreen: View {
                         .padding()
                         .foregroundStyle(.white)
                         .background(RoundedRectangle(cornerRadius: 16).fill(
-                            newName .isEmpty ? .gray.opacity(0.5) : Color("MainColor")))
+                            newName.isEmpty ? .gray.opacity(0.5) : Color.main))
                 }
-                .disabled((newName .isEmpty))
+                .disabled(newName.isEmpty)
                 Button(role: .cancel, action: {
                     dismiss()
                 }) {
@@ -77,5 +80,6 @@ struct EditProfileScreen: View {
 }
 
 #Preview {
-    EditProfileScreen(viewModel: ProfileViewModel())
+    ProfileScreen()
+        .modelContainer(for: [Profile.self, Course.self])
 }

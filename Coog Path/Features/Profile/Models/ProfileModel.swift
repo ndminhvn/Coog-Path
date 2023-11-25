@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Profile {
+@Model
+class Profile {
     var name: String
-    var savedClasses: [Course]
+
+    init(name: String) {
+        self.name = name
+    }
 }
