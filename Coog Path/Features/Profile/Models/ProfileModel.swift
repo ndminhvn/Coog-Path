@@ -11,10 +11,8 @@ import SwiftData
 @Model
 class Profile {
     var name: String
-    var savedClasses: [Course]
 
-    init(name: String = "Guest User", savedClasses: [Course] = []) {
+    init(name: String) {
         self.name = name
-        self.savedClasses = savedClasses
     }
 }

@@ -14,6 +14,8 @@ struct ProfileScreen: View {
     @State private var showingEditProfileSheet = false
     @State private var showingAddClassSheet = false
     @Query var profiles: [Profile]
+    @Query var courses: [Course]
+    @State private var savedClasses: [Course] = []
 
     var body: some View {
         VStack {
@@ -29,7 +31,7 @@ struct ProfileScreen: View {
                         .font(.title)
                 })
                 .sheet(isPresented: $showingEditProfileSheet) {
-                    EditProfileScreen(viewModel: viewModel)
+                    EditProfileScreen()
                 }
             }
             VStack(alignment: .center) {
@@ -46,30 +48,35 @@ struct ProfileScreen: View {
             VStack {
                 NavigationStack {
                     List {
-                        if !profiles.isEmpty {
-                            ForEach(profiles[0].savedClasses) { course in
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text("\(course.name)")
-                                            .fontWeight(.semibold)
-                                            .font(.system(size: 20))
-                                        Text("\(course.roomNumber)")
-                                    }
-                                    Spacer()
-                                    VStack(alignment: .trailing) {
-                                        Text("\(course.date1) \(course.date2 ?? "") \(course.date2 ?? "")")
-                                            .fontWeight(.medium)
-                                        Text("\(course.timeFrom) - \(course.timeTo)")
-                                    }
+                        ForEach(savedClasses) { course in
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("\(course.name)")
+                                        .fontWeight(.semibold)
+                                        .font(.system(size: 20))
+                                    Text("\(course.roomNumber)")
+                                }
+                                Spacer()
+                                VStack(alignment: .trailing) {
+                                    Text("\(course.date1) \(course.date2 ?? "") \(course.date3 ?? "")")
+                                        .fontWeight(.medium)
+                                    Text("\(course.timeFrom) - \(course.timeTo)")
                                 }
                             }
-                            .onMove(perform: { indices, newOffset in
-                                viewModel.move(from: indices, to: newOffset)
-                            })
-                            .onDelete(perform: { indexSet in
-                                viewModel.delete(at: indexSet)
-                            })
                         }
+                        .onMove(perform: { indices, newOffset in
+                            savedClasses.move(fromOffsets: indices, toOffset: newOffset)
+                        })
+                        .onConfirmedDelete(
+                            title: { indexSet in
+                                "Delete course “\(savedClasses[indexSet.first!].name)”?"
+                            },
+                            message: "This cannot be undone.",
+                            action: { indexSet in
+                                let courseToDelete = savedClasses[indexSet.first!]
+                                modelContext.delete(courseToDelete)
+                            }
+                        )
                     }
                     .toolbar {
                         EditButton()
@@ -80,7 +87,7 @@ struct ProfileScreen: View {
                             HStack {
                                 Image(systemName: "star.fill")
                                     .font(.title2)
-                                    .foregroundStyle(Color("MainColor"))
+                                    .foregroundStyle(Color.main)
                                 Text("Saved Classes")
                                     .font(.title2)
                                     .fontWeight(.semibold)
@@ -96,7 +103,7 @@ struct ProfileScreen: View {
                             .font(.title2)
                     }
                     .sheet(isPresented: $showingAddClassSheet) {
-                        AddClassScreen(viewModel: viewModel)
+                        AddClassScreen()
                     }
                 }
             }
@@ -104,12 +111,56 @@ struct ProfileScreen: View {
         }
         .padding()
         .onAppear(perform: {
-            modelContext.insert(Profile())
+            if profiles.isEmpty {
+                modelContext.insert(Profile(name: "Guest User"))
+            }
+            savedClasses = courses
         })
+        .onChange(of: courses) {
+            savedClasses = courses
+        }
+    }
+}
+
+extension DynamicViewContent {
+    func onConfirmedDelete(title: @escaping (IndexSet) -> String, message: String? = nil, action: @escaping (IndexSet) -> Void) -> some View {
+        DeleteConfirmation(source: self, title: title, message: message, action: action)
+    }
+}
+
+struct DeleteConfirmation<Source>: View where Source: DynamicViewContent {
+    let source: Source
+    let title: (IndexSet) -> String
+    let message: String?
+    let action: (IndexSet) -> Void
+    @State var indexSet: IndexSet = []
+    @State var isPresented: Bool = false
+
+    var body: some View {
+        source
+            .onDelete { indexSet in
+                self.indexSet = indexSet
+                isPresented = true
+            }
+            .alert(isPresented: $isPresented) {
+                Alert(
+                    title: Text(title(indexSet)),
+                    message: message == nil ? nil : Text(message!),
+                    primaryButton: .cancel(),
+                    secondaryButton: .destructive(
+                        Text("Delete"),
+                        action: {
+                            withAnimation {
+                                action(indexSet)
+                            }
+                        }
+                    )
+                )
+            }
     }
 }
 
 #Preview {
     ProfileScreen()
-        .modelContainer(for: Profile.self)
+        .modelContainer(for: [Profile.self, Course.self])
 }

@@ -14,6 +14,6 @@ struct Coog_PathApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Profile.self)
+        .modelContainer(for: [Profile.self, Course.self])
     }
 }
