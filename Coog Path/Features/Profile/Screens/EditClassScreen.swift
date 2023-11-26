@@ -11,7 +11,7 @@ struct EditClassScreen: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     @State var course: Course
-
+    @State private var isFormUpdated: Bool = false
     let dates = ["Select", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
     var body: some View {
@@ -26,10 +26,16 @@ struct EditClassScreen: View {
                     TextField(text: $course.name) {
                         Text("Enter course number")
                     }
+                    .onChange(of: course.name) {
+                        isFormUpdated.toggle()
+                    }
                 }
                 Section("Room Number") {
                     TextField(text: $course.roomNumber) {
                         Text("Enter room number")
+                    }
+                    .onChange(of: course.roomNumber) {
+                        isFormUpdated.toggle()
                     }
                 }
                 Section("Meeting Dates") {
@@ -38,15 +44,24 @@ struct EditClassScreen: View {
                             Text(date).tag(date)
                         }
                     }
+                    .onChange(of: course.date1) {
+                        isFormUpdated.toggle()
+                    }
                     Picker("Date 2 (if applicable)", selection: $course.date2) {
                         ForEach(dates, id: \.self) { date in
                             Text(date).tag(date as String?)
                         }
                     }
+                    .onChange(of: course.date2) {
+                        isFormUpdated.toggle()
+                    }
                     Picker("Date 3 (if applicable)", selection: $course.date3) {
                         ForEach(dates, id: \.self) { date in
                             Text(date).tag(date as String?)
                         }
+                    }
+                    .onChange(of: course.date3) {
+                        isFormUpdated.toggle()
                     }
                 }
                 Section("Meeting Time") {
@@ -64,6 +79,9 @@ struct EditClassScreen: View {
                             course.timeFrom = dateFormatter.string(from: $0)
                         }
                     ), displayedComponents: .hourAndMinute)
+                        .onChange(of: course.timeFrom) {
+                            isFormUpdated.toggle()
+                        }
                     DatePicker("To", selection: Binding(
                         get: {
                             // Convert the time string to a Date when getting
@@ -78,6 +96,9 @@ struct EditClassScreen: View {
                             course.timeTo = dateFormatter.string(from: $0)
                         }
                     ), displayedComponents: .hourAndMinute)
+                        .onChange(of: course.timeTo) {
+                            isFormUpdated.toggle()
+                        }
                 }
             }
             .toolbar {
@@ -94,7 +115,7 @@ struct EditClassScreen: View {
                     }, label: {
                         Text("Update")
                     })
-//                    .disabled(!isFormValid)
+                    .disabled(!isFormUpdated)
                 }
             }
         }
