@@ -12,13 +12,6 @@ struct EditClassScreen: View {
     @Environment(\.dismiss) var dismiss
     @State var course: Course
 
-    @State private var timeTo: Date = Date(timeInterval: 5400, since: Date.now)
-    @State private var timeFrom: Date = Date.now {
-        didSet {
-            timeTo = Date(timeInterval: 5400, since: timeFrom)
-        }
-    }
-
     let dates = ["Select", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
     var body: some View {
@@ -47,18 +40,44 @@ struct EditClassScreen: View {
                     }
                     Picker("Date 2 (if applicable)", selection: $course.date2) {
                         ForEach(dates, id: \.self) { date in
-                            Text(date).tag(date)
+                            Text(date).tag(date as String?)
                         }
                     }
                     Picker("Date 3 (if applicable)", selection: $course.date3) {
                         ForEach(dates, id: \.self) { date in
-                            Text(date).tag(date)
+                            Text(date).tag(date as String?)
                         }
                     }
                 }
                 Section("Meeting Time") {
-                    DatePicker("From", selection: $timeFrom, displayedComponents: .hourAndMinute)
-                    DatePicker("To", selection: $timeTo, displayedComponents: .hourAndMinute)
+                    DatePicker("From", selection: Binding(
+                        get: {
+                            // Convert the time string to a Date when getting
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "h:mma"
+                            return dateFormatter.date(from: course.timeFrom) ?? Date()
+                        },
+                        set: {
+                            // Convert the Date to a time string when setting
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "h:mma"
+                            course.timeFrom = dateFormatter.string(from: $0)
+                        }
+                    ), displayedComponents: .hourAndMinute)
+                    DatePicker("To", selection: Binding(
+                        get: {
+                            // Convert the time string to a Date when getting
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "h:mma"
+                            return dateFormatter.date(from: course.timeTo) ?? Date()
+                        },
+                        set: {
+                            // Convert the Date to a time string when setting
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "h:mma"
+                            course.timeTo = dateFormatter.string(from: $0)
+                        }
+                    ), displayedComponents: .hourAndMinute)
                 }
             }
             .toolbar {
