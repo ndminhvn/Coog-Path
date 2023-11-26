@@ -269,7 +269,22 @@ struct HomeScreen: View {
             }
             .frame(height: 200)
             .clipShape(.rect(cornerRadius: 15))
-
+            // close button for location preview
+            .overlay(alignment: .topTrailing){
+                Button(action:{
+                    buildingVM.searchDestinationForMap = "" // Empty search bar
+                    buildingVM.removeSearchResults() // Remove all results
+                    searchResults = nil // search result for detail preview
+                    route = nil // remove route
+                }, label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title)
+                        .foregroundStyle(.black)
+                        .background(.white, in: .circle)
+                })
+                .padding(10)
+            }
+            
             // Direction's button
             Button(action: {
                 Task {
