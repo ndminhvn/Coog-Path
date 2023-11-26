@@ -32,20 +32,26 @@ struct BuildingDetailScreen: View {
                         .bold()
                         .font(.title2)
                         .multilineTextAlignment(.center)
+                        .padding(.vertical, 2)
+                    Text(building.Abbr)
+                        .fontWeight(.medium)
+                        .font(.title3)
+                        .multilineTextAlignment(.center)
+                        .padding(.vertical, 2)
                     Text(building.Address)
                 }
+//                VStack(alignment: .leading, spacing: 2) {
+//                    Text("Sample room numbers:")
+//                        .bold()
+//                        .font(.headline)
+//                        .padding(.top, 30)
+//                    ForEach(building.SampleRoomNumbers, id: \.self) { room in
+//                        Label("\(building.Abbr) \(room)", systemImage: "smallcircle.filled.circle")
+//                            .padding(.top, 5)
+//                    }
+//                }
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Sample room numbers:")
-                        .bold()
-                        .font(.headline)
-                        .padding(.top, 30)
-                    ForEach(building.SampleRoomNumbers, id: \.self) { room in
-                        Label("\(building.Abbr) \(room)", systemImage: "smallcircle.filled.circle")
-                            .padding(.top, 5)
-                    }
-                }
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Your classes in this building:")
+                    Text("Your schedule in this building:")
                         .bold()
                         .font(.headline)
                         .padding(.top, 30)
@@ -56,17 +62,21 @@ struct BuildingDetailScreen: View {
             .frame(minWidth: 0, maxWidth: .infinity)
             .background(Color.white)
             Spacer()
-            // Future: may add this feature
-//            Button {
-//                // add to favorites
-//                print("Clicked add to favorite")
-//            } label: {
-//                Text("Add to favorites")
-//            }
         }
         .padding()
         .padding(.top, -30)
         .background(Color.background)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {
+                    building.isFavorited.toggle()
+                }, label: {
+                    Image(systemName: building.isFavorited ? "star.fill" : "star")
+                        .font(.title3)
+                        .foregroundStyle(Color.main.opacity(0.8))
+                })
+            }
+        }
     }
 }
 
