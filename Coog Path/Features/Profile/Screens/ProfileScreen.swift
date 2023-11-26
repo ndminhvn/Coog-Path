@@ -13,6 +13,7 @@ struct ProfileScreen: View {
     @ObservedObject var viewModel = ProfileViewModel()
     @State private var showingEditProfileSheet = false
     @State private var showingAddClassSheet = false
+    @State private var showingEditClassSheet = false
     @Query var profiles: [Profile]
     @Query var courses: [Course]
     @State private var savedClasses: [Course] = []
@@ -62,6 +63,12 @@ struct ProfileScreen: View {
                                         .fontWeight(.medium)
                                     Text("\(course.timeFrom) - \(course.timeTo)")
                                 }
+                            }
+                            .onTapGesture(perform: {
+                                showingEditClassSheet.toggle()
+                            })
+                            .sheet(isPresented: $showingEditClassSheet) {
+                                EditClassScreen(course: course)
                             }
                         }
                         .onMove(perform: { indices, newOffset in
