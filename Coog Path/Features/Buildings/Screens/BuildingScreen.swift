@@ -5,12 +5,17 @@
 //  Created by Minh Nguyen on 10/20/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct BuildingScreen: View {
+    @Environment(\.modelContext) private var modelContext
+    // all buildings
+    @Query var buildings: [Building]
+    // favorited buildings only
+    @Query(filter: #Predicate<Building> { $0.isFavorited }) var favoritedBuildings: [Building]
     @ObservedObject var viewModel = BuildingViewModel()
     @State private var showFilterOptions: Bool = false
-    @State private var favoritedStates: [UUID: Bool] = [:]
 
     var body: some View {
         NavigationStack {
@@ -28,13 +33,12 @@ struct BuildingScreen: View {
                             Spacer()
                         }
                         .overlay(alignment: .trailing) {
-                            Image(systemName: favoritedStates[building.id] ?? false ? "star.fill" : "star")
+                            // Add to favorited
+                            Image(systemName: building.isFavorited ? "star.fill" : "star")
                                 .font(.title3)
                                 .foregroundStyle(Color.main.opacity(0.8))
                                 .onTapGesture {
-                                    print("Add to favorited")
-                                    toggleFavorite(for: building)
-                                    // Add your favorite logic here
+                                    building.isFavorited.toggle()
                                 }
                         }
                     }
@@ -53,26 +57,28 @@ struct BuildingScreen: View {
                             }
                         }
                     } label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
+                        Image(systemName: viewModel.filterOption == "All buildings" ? "line.3.horizontal.decrease.circle" : "line.3.horizontal.decrease.circle.fill")
                             .font(.title2)
                     }
                 }
             }
             .searchable(text: $viewModel.searchText, placement: .navigationBarDrawer(displayMode: .always))
             .onAppear {
-                Task {
-                    viewModel.loadData()
-                }
+                // assign viewModel buildings array = query result
+                viewModel.buildings = buildings
+                viewModel.favoritedBuilding = favoritedBuildings
+            }
+            .onChange(of: buildings) {
+                viewModel.buildings = buildings
+            }
+            .onChange(of: favoritedBuildings) {
+                viewModel.favoritedBuilding = favoritedBuildings
             }
         }
-    }
-    private func toggleFavorite(for building: Building) {
-        favoritedStates[building.id] = !(favoritedStates[building.id] ?? false)
-        print("Building \(building.Name) favorited state: \(favoritedStates[building.id] ?? false)")
-        // Add your favorite logic here
     }
 }
 
 #Preview {
     BuildingScreen()
+        .modelContainer(for: [Building.self])
 }
