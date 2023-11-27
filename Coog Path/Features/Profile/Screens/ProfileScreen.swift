@@ -16,6 +16,7 @@ struct ProfileScreen: View {
     @State private var showingEditClassSheet = false
     @Query var profiles: [Profile]
     @Query var courses: [Course]
+    @Query var buildings: [Building]
     @State private var savedClasses: [Course] = []
 
     var body: some View {
@@ -80,8 +81,14 @@ struct ProfileScreen: View {
                             },
                             message: "This cannot be undone.",
                             action: { indexSet in
+                                // delete course from storage
                                 let courseToDelete = savedClasses[indexSet.first!]
                                 modelContext.delete(courseToDelete)
+
+                                // delete course from building's courses list
+                                if let building = buildings.first(where: { $0.Abbr == courseToDelete.building }) {
+                                    building.courses?.removeAll { $0.id == courseToDelete.id }
+                                }
                             }
                         )
                     }
@@ -169,5 +176,5 @@ struct DeleteConfirmation<Source>: View where Source: DynamicViewContent {
 
 #Preview {
     ProfileScreen()
-        .modelContainer(for: [Profile.self, Course.self])
+        .modelContainer(for: [Profile.self, Course.self, Building.self])
 }

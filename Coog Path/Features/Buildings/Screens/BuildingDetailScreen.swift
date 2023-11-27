@@ -88,4 +88,5 @@ struct BuildingDetailScreen: View {
 
 #Preview {
     BuildingScreen()
+        .modelContainer(for: [Course.self, Building.self])
 }
