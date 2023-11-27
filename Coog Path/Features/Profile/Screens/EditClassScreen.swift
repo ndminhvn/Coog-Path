@@ -5,14 +5,86 @@
 //  Created by Minh Nguyen on 11/25/23.
 //
 
+import SwiftData
 import SwiftUI
 
 struct EditClassScreen: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
+    @Query var buildings: [Building]
     @State var course: Course
-    @State private var isFormUpdated: Bool = false
+
     let dates = ["Select", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+
+    @State private var name: String = ""
+    @State private var roomNumber: String = ""
+    @State private var date1: String = ""
+    @State private var date2: String = ""
+    @State private var date3: String = ""
+    @State private var timeTo: String = ""
+    @State private var timeFrom: String = ""
+
+    @State private var isValidRoom: Bool = false
+    @State private var foundBuildingAbbr: String = ""
+    @State private var foundRoom: String = ""
+
+    // check if any data changed and valid
+    private var isFormValid: Bool {
+        (!name.isEmpty && name != course.name)
+            || (roomNumber != course.roomNumber && isValidRoom)
+            || date1 != course.date1
+            || date2 != course.date2
+            || date3 != course.date3
+            || timeFrom != course.timeFrom
+            || timeTo != course.timeTo
+    }
+
+    private func updateStateFromCourse() {
+        name = course.name
+        roomNumber = course.roomNumber
+        foundBuildingAbbr = course.building
+        foundRoom = course.room
+        date1 = course.date1
+        date2 = course.date2 ?? ""
+        date3 = course.date3 ?? ""
+        timeFrom = course.timeFrom
+        timeTo = course.timeTo
+    }
+
+    // validate the entered roomNumber, to add corresponding building to favorites
+    func validateRoomNumber(_ roomNumber: String) {
+        let components = roomNumber.components(separatedBy: " ")
+
+        if components.count >= 2 {
+            // If the roomNumber contains a space, validate based on the first component
+            let buildingAbbreviation = components[0]
+            isValidRoom = buildings.contains { building in
+                buildingAbbreviation == building.Abbr
+            }
+            if isValidRoom == true {
+                foundBuildingAbbr = buildingAbbreviation
+                foundRoom = components[1]
+            }
+
+        } else {
+            // If there is no space, attempt to separate the string by numbers
+            // For ex: PGH232 will be separated to PGH and 232
+            if let range = roomNumber.rangeOfCharacter(from: .decimalDigits) {
+                let index = range.lowerBound
+                let buildingAbbreviation = String(roomNumber[..<index])
+                isValidRoom = buildings.contains { building in
+                    buildingAbbreviation == building.Abbr
+                }
+                if isValidRoom == true {
+                    foundBuildingAbbr = buildingAbbreviation
+                    foundRoom = String(roomNumber[index...])
+                }
+            } else {
+                // No numbers found, consider it invalid
+                isValidRoom = false
+            }
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -23,45 +95,66 @@ struct EditClassScreen: View {
             Spacer()
             Form {
                 Section("Course Number") {
-                    TextField(text: $course.name) {
-                        Text("Enter course number")
+                    TextField(text: $name) {
+                        Text("Ex: COSC 4355")
                     }
-                    .onChange(of: course.name) {
-                        isFormUpdated.toggle()
+                    .onChange(of: name) {
+                        name = name.uppercased()
                     }
                 }
-                Section("Room Number") {
-                    TextField(text: $course.roomNumber) {
-                        Text("Enter room number")
+                Section {
+                    TextField(text: $roomNumber) {
+                        Text("Ex: PGH 232")
                     }
-                    .onChange(of: course.roomNumber) {
-                        isFormUpdated.toggle()
+                    .onAppear(perform: {
+                        validateRoomNumber(roomNumber)
+                    })
+                    .onChange(of: roomNumber) {
+                        roomNumber = roomNumber.uppercased()
+                        validateRoomNumber(roomNumber)
                     }
+                } header: {
+                    Text("Room Number")
+                } footer: {
+                    // if roomNumber is not empty, show invalid/valid
+                    if roomNumber.isEmpty {
+                        Text("")
+                    } else {
+                        if !isValidRoom {
+                            Text("Invalid room number. Please try again!")
+                        } else {
+                            Text("Valid building: \(foundBuildingAbbr), room \(foundRoom)")
+                        }
+                    }
+                }
+                .onChange(of: roomNumber) {
+                    roomNumber = roomNumber.uppercased()
+                    validateRoomNumber(roomNumber)
                 }
                 Section("Meeting Dates") {
-                    Picker("Date 1", selection: $course.date1) {
+                    Picker("Date 1", selection: $date1) {
                         ForEach(dates, id: \.self) { date in
                             Text(date).tag(date)
                         }
                     }
-                    .onChange(of: course.date1) {
-                        isFormUpdated.toggle()
+                    .onChange(of: date1) {
+                        date1 = (date1 == "Select") ? "" : date1
                     }
-                    Picker("Date 2 (if applicable)", selection: $course.date2) {
+                    Picker("Date 2 (if applicable)", selection: $date2) {
                         ForEach(dates, id: \.self) { date in
                             Text(date).tag(date as String?)
                         }
                     }
-                    .onChange(of: course.date2) {
-                        isFormUpdated.toggle()
+                    .onChange(of: date2) {
+                        date2 = (date2 == "Select") ? "" : date2
                     }
-                    Picker("Date 3 (if applicable)", selection: $course.date3) {
+                    Picker("Date 3 (if applicable)", selection: $date3) {
                         ForEach(dates, id: \.self) { date in
                             Text(date).tag(date as String?)
                         }
                     }
-                    .onChange(of: course.date3) {
-                        isFormUpdated.toggle()
+                    .onChange(of: date3) {
+                        date3 = (date3 == "Select") ? "" : date3
                     }
                 }
                 Section("Meeting Time") {
@@ -70,35 +163,29 @@ struct EditClassScreen: View {
                             // Convert the time string to a Date when getting
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "h:mma"
-                            return dateFormatter.date(from: course.timeFrom) ?? Date()
+                            return dateFormatter.date(from: timeFrom) ?? Date()
                         },
                         set: {
                             // Convert the Date to a time string when setting
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "h:mma"
-                            course.timeFrom = dateFormatter.string(from: $0)
+                            timeFrom = dateFormatter.string(from: $0)
                         }
                     ), displayedComponents: .hourAndMinute)
-                        .onChange(of: course.timeFrom) {
-                            isFormUpdated.toggle()
-                        }
                     DatePicker("To", selection: Binding(
                         get: {
                             // Convert the time string to a Date when getting
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "h:mma"
-                            return dateFormatter.date(from: course.timeTo) ?? Date()
+                            return dateFormatter.date(from: timeTo) ?? Date()
                         },
                         set: {
                             // Convert the Date to a time string when setting
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "h:mma"
-                            course.timeTo = dateFormatter.string(from: $0)
+                            timeTo = dateFormatter.string(from: $0)
                         }
                     ), displayedComponents: .hourAndMinute)
-                        .onChange(of: course.timeTo) {
-                            isFormUpdated.toggle()
-                        }
                 }
             }
             .toolbar {
@@ -111,13 +198,31 @@ struct EditClassScreen: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
+                        // update course with field data
+                        if isValidRoom {
+                            roomNumber = "\(foundBuildingAbbr) \(foundRoom)"
+                        }
+                        course.name = name
+                        course.roomNumber = roomNumber
+                        course.building = foundBuildingAbbr
+                        course.room = foundRoom
+                        course.date1 = date1
+                        course.date2 = date2
+                        course.date3 = date3
+                        course.timeFrom = timeFrom
+                        course.timeTo = timeTo
+
+                        // close the sheet
                         dismiss()
                     }, label: {
                         Text("Update")
                     })
-                    .disabled(!isFormUpdated)
+                    .disabled(!isFormValid)
                 }
             }
+        }
+        .onAppear {
+            updateStateFromCourse()
         }
     }
 }
