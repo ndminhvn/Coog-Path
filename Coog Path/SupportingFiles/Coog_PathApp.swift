@@ -14,7 +14,6 @@ struct Coog_PathApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Profile.self, Course.self, Building.self])
         .modelContainer(appContainer)
     }
 }
@@ -23,7 +22,7 @@ struct Coog_PathApp: App {
 @MainActor
 let appContainer: ModelContainer = {
     do {
-        let container = try ModelContainer(for: Building.self)
+        let container = try ModelContainer(for: Profile.self, Course.self, Building.self)
 
         // Make sure the persistent store is empty. If it's not, return the non-empty container.
         var buildingFetchDescriptor = FetchDescriptor<Building>()

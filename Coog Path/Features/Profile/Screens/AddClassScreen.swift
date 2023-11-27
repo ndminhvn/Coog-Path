@@ -40,12 +40,12 @@ struct AddClassScreen: View {
             Form {
                 Section("Course Number") {
                     TextField(text: $name) {
-                        Text("Enter course number")
+                        Text("For ex: COSC 4355")
                     }
                 }
                 Section("Room Number") {
                     TextField(text: $roomNumber) {
-                        Text("Enter room number")
+                        Text("For ex: PGH 232")
                     }
                 }
                 Section("Meeting Dates") {
