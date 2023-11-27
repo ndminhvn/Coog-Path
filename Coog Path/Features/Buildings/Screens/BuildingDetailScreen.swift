@@ -51,10 +51,16 @@ struct BuildingDetailScreen: View {
 //                    }
 //                }
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Your schedule in this building:")
-                        .bold()
-                        .font(.headline)
-                        .padding(.top, 30)
+                    if building.courses!.count > 0 {
+                        Text("Your schedule in this building:")
+                            .bold()
+                            .font(.headline)
+                            .padding(.top, 30)
+                        ForEach(building.courses!, id: \.self) { course in
+                            Label("\(course.name)", systemImage: "smallcircle.filled.circle")
+                                .padding(.top, 5)
+                        }
+                    }
                 }
                 Spacer()
             }

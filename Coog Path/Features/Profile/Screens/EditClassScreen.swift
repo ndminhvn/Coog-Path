@@ -52,7 +52,7 @@ struct EditClassScreen: View {
     }
 
     // validate the entered roomNumber, to add corresponding building to favorites
-    func validateRoomNumber(_ roomNumber: String) {
+    private func validateRoomNumber(_ roomNumber: String) {
         let components = roomNumber.components(separatedBy: " ")
 
         if components.count >= 2 {
@@ -83,6 +83,39 @@ struct EditClassScreen: View {
                 // No numbers found, consider it invalid
                 isValidRoom = false
             }
+        }
+    }
+
+    private func updateClass() {
+        // update course with field data
+        if isValidRoom {
+            roomNumber = "\(foundBuildingAbbr) \(foundRoom)"
+        }
+
+        // remove course from building's courses list if building change
+        if foundBuildingAbbr != course.building {
+            if let oldBuilding = buildings.first(where: { $0.Abbr == course.building }) {
+                oldBuilding.courses?.removeAll { $0.id == course.id }
+            }
+        }
+
+        // update course details
+        course.name = name
+        course.roomNumber = roomNumber
+        course.building = foundBuildingAbbr
+        course.room = foundRoom
+        course.date1 = date1
+        course.date2 = date2
+        course.date3 = date3
+        course.timeFrom = timeFrom
+        course.timeTo = timeTo
+
+        // add the selected building to favorites, also add the course to building's courses list
+        if let building: Building = {
+            return buildings.first { $0.Abbr == foundBuildingAbbr }
+        }() {
+            building.isFavorited = isValidRoom
+            building.courses?.append(course)
         }
     }
 
@@ -198,21 +231,7 @@ struct EditClassScreen: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        // update course with field data
-                        if isValidRoom {
-                            roomNumber = "\(foundBuildingAbbr) \(foundRoom)"
-                        }
-                        course.name = name
-                        course.roomNumber = roomNumber
-                        course.building = foundBuildingAbbr
-                        course.room = foundRoom
-                        course.date1 = date1
-                        course.date2 = date2
-                        course.date3 = date3
-                        course.timeFrom = timeFrom
-                        course.timeTo = timeTo
-
-                        // close the sheet
+                        updateClass()
                         dismiss()
                     }, label: {
                         Text("Update")
