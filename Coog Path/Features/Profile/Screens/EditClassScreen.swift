@@ -88,7 +88,7 @@ struct EditClassScreen: View {
 
     var body: some View {
         NavigationStack {
-            Text("Add Class")
+            Text("Edit Class")
                 .font(.title)
                 .fontWeight(.semibold)
                 .padding()
