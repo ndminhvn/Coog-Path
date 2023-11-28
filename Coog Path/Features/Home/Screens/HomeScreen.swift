@@ -10,7 +10,6 @@ import SwiftUI
 
 struct HomeScreen: View {
     // Search text field properties
-    @State private var fromLocation: String = ""
     @State private var destinationLocation: String = "" // Destination
     @State private var searchResults: MKMapItem?
     @FocusState private var isFocused: Bool // If text field is focused
@@ -105,19 +104,18 @@ struct HomeScreen: View {
                                 .padding(7)
                                 .background(Color.white)
                                 .clipShape(.rect(cornerRadius: 6))
-                            }
+                                // Dismiss seach list when user click "cancel" button
+                                if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
+                                    Button {
+                                        buildingVM.searchDestinationForMap = "" // Empty search bar
+                                        buildingVM.removeSearchResults() // Remove all results
+                                        searchResults = nil // search result for detail preview
+                                        route = nil // empty route
+                                        isFocused.toggle() // unfocus
 
-                            // Dismiss seach list when user click "cancel" button
-                            if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
-                                Button {
-                                    buildingVM.searchDestinationForMap = "" // Empty search bar
-                                    buildingVM.removeSearchResults() // Remove all results
-                                    searchResults = nil // search result for detail preview
-                                    route = nil // empty route
-                                    isFocused.toggle() // unfocus
-
-                                } label: {
-                                    Text("Cancel")
+                                    } label: {
+                                        Text("Cancel")
+                                    }
                                 }
                             }
                         }
@@ -207,52 +205,42 @@ struct HomeScreen: View {
                         Text("End Route")
                             .font(.title2)
                             .bold()
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 45)
                             .padding(.horizontal, 20)
                             .foregroundStyle(.white)
                     })
                     .background(RoundedRectangle(cornerRadius: 16).fill(Color("MainColor")))
                 }
             }
-            .onChange(of: searchResults) {
-                locationManager.myPosition = .automatic
+            .onChange(of: searchResults) { _, newValue in
+                // locationManager.myPosition = .automatic
                 // Show preview detail if user pick a location
-                showDetails = searchResults != nil ? true : false
-                // showDetails = newValue != nil
+                // showDetails = searchResults != nil ? true : false
+                showDetails = newValue != nil
                 fetchLookAroundPreview()
             }
             .clipShape(.rect(cornerRadius: 16))
-
-            // Display the button if find a valid destination.
-//            if !destinationLocation.isEmpty && destinationLocation == buildingVM.searchDestinationForMap {
-//                Button(action: {
-//                    if !isFocused, let route {
-//                        MapPolyline(route.polyline)
-//                            .stroke(Color.main, lineWidth: 7)
-//                    }
-//                    print("Button clicked")
-//                }, label: {
-//                    Text("Go Coog")
-//                        .font(.title2)
-//                        .bold()
-//                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
-//                        .padding(.horizontal, 20)
-//                        .foregroundStyle(.white)
-//                })
-//                .background(RoundedRectangle(cornerRadius: 16).fill(Color("MainColor")))
-//            }
         }
         .padding()
     }
 
     // Fetching location preview
     func fetchLookAroundPreview() {
-        if let searchResults {
+        if let searchResults = searchResults {
             lookAroundScene = nil
             Task {
-                let request = MKLookAroundSceneRequest(mapItem: searchResults)
-                lookAroundScene = try? await request.scene
+                do {
+                    let request = MKLookAroundSceneRequest(mapItem: searchResults)
+                    lookAroundScene = try await request.scene
+                    print("success")
+                } catch {
+                    // Handle the error here
+                    print("Error fetching look around preview: \(error)")
+                }
             }
+        } else {
+            // Handle the case where searchResults is nil
+            print("Error: searchResults is nil")
         }
     }
 
@@ -264,14 +252,14 @@ struct HomeScreen: View {
                 if lookAroundScene == nil {
                     ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
                 } else {
-                    LookAroundPreview(scene: $lookAroundScene)
+                    LookAroundPreview(initialScene: lookAroundScene)
                 }
             }
             .frame(height: 200)
             .clipShape(.rect(cornerRadius: 15))
             // close button for location preview
-            .overlay(alignment: .topTrailing){
-                Button(action:{
+            .overlay(alignment: .topTrailing) {
+                Button(action: {
                     buildingVM.searchDestinationForMap = "" // Empty search bar
                     buildingVM.removeSearchResults() // Remove all results
                     searchResults = nil // search result for detail preview
@@ -284,7 +272,7 @@ struct HomeScreen: View {
                 })
                 .padding(10)
             }
-            
+
             // Direction's button
             Button(action: {
                 Task {
@@ -300,7 +288,7 @@ struct HomeScreen: View {
                 Text("Go Coog")
                     .font(.title2)
                     .bold()
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 50)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 45)
                     .padding(.horizontal, 20)
                     .foregroundStyle(.white)
             })

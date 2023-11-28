@@ -84,6 +84,7 @@ class BuildingViewModel: ObservableObject {
         request.region = locationManager.myRegion
         let results = try? await MKLocalSearch(request: request).start()
         searchResults = results?.mapItems ?? []
+        searchResults = [searchResults[0]]
     }
 
     // fetching route
