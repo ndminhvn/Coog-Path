@@ -12,7 +12,7 @@ struct EditClassScreen: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     @Query var buildings: [Building]
-    @State var course: Course
+    var course: Course
 
     let dates = ["Select", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 

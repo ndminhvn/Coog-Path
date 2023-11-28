@@ -13,11 +13,11 @@ struct ProfileScreen: View {
     @ObservedObject var viewModel = ProfileViewModel()
     @State private var showingEditProfileSheet = false
     @State private var showingAddClassSheet = false
-    @State private var showingEditClassSheet = false
     @Query var profiles: [Profile]
     @Query var courses: [Course]
     @Query var buildings: [Building]
     @State private var savedClasses: [Course] = []
+    @State private var selectedClassToEdit: Course? = nil
 
     var body: some View {
         VStack {
@@ -66,11 +66,8 @@ struct ProfileScreen: View {
                                 }
                             }
                             .onTapGesture(perform: {
-                                showingEditClassSheet.toggle()
+                                selectedClassToEdit = course
                             })
-                            .sheet(isPresented: $showingEditClassSheet) {
-                                EditClassScreen(course: course)
-                            }
                         }
                         .onMove(perform: { indices, newOffset in
                             savedClasses.move(fromOffsets: indices, toOffset: newOffset)
@@ -91,6 +88,9 @@ struct ProfileScreen: View {
                                 }
                             }
                         )
+                        .sheet(item: $selectedClassToEdit) { course in
+                            EditClassScreen(course: course)
+                        }
                     }
                     .toolbar {
                         EditButton()
