@@ -6,6 +6,7 @@
 //
 
 import MapKit
+import SwiftData
 import SwiftUI
 
 struct HomeScreen: View {
@@ -24,6 +25,9 @@ struct HomeScreen: View {
     @State private var showDetails = false
     @State private var lookAroundScene: MKLookAroundScene?
 
+    // Get the profile name to show Welcome back text
+    @Query var profiles: [Profile]
+
     var body: some View {
         VStack {
             // Title
@@ -33,8 +37,17 @@ struct HomeScreen: View {
                     .bold()
                 Spacer()
             }
-            Spacer()
-
+            if profiles.count > 0 &&
+                profiles[0].name != "Guest User"
+                && !profiles[0].name.isEmpty {
+                HStack {
+                    Spacer()
+                    Text("Welcome back, \(profiles[0].name)!")
+                        .italic()
+                        .fontWeight(.medium)
+                        .foregroundStyle(Color.main)
+                }
+            }
             // Map stack
             Map(position: $locationManager.myPosition, scope: mapScope) {
                 ForEach(buildingVM.searchResults, id: \.self) { mapItem in
@@ -301,4 +314,5 @@ struct HomeScreen: View {
 
 #Preview {
     HomeScreen()
+        .modelContainer(for: [Profile.self, Building.self])
 }
