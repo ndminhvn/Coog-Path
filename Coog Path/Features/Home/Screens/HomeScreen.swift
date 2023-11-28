@@ -209,7 +209,7 @@ struct HomeScreen: View {
                             .padding(.horizontal, 20)
                             .foregroundStyle(.white)
                     })
-                    .background(RoundedRectangle(cornerRadius: 16).fill(Color("MainColor")))
+                    .background(RoundedRectangle(cornerRadius: 16).fill(Color.main))
                 }
             }
             .onChange(of: searchResults) { _, newValue in
@@ -222,6 +222,7 @@ struct HomeScreen: View {
             .clipShape(.rect(cornerRadius: 16))
         }
         .padding()
+        .background(Color.background)
     }
 
     // Fetching location preview
@@ -292,7 +293,7 @@ struct HomeScreen: View {
                     .padding(.horizontal, 20)
                     .foregroundStyle(.white)
             })
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color("MainColor")))
+            .background(RoundedRectangle(cornerRadius: 16).fill(Color.main))
         }
         .padding(15)
     }
