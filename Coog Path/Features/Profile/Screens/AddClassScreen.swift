@@ -38,7 +38,7 @@ struct AddClassScreen: View {
     }
 
     // validate the entered roomNumber, to add corresponding building to favorites
-    func validateRoomNumber(_ roomNumber: String) {
+    private func validateRoomNumber(_ roomNumber: String) {
         let components = roomNumber.components(separatedBy: " ")
 
         if components.count >= 2 {
@@ -69,6 +69,27 @@ struct AddClassScreen: View {
                 // No numbers found, consider it invalid
                 isValidRoom = false
             }
+        }
+    }
+
+    private func addClass() {
+        // prepare roomNumber string to save
+        if isValidRoom {
+            roomNumber = "\(foundBuildingAbbr) \(foundRoom)"
+        }
+
+        // course instance
+        let course = Course(name: name, roomNumber: roomNumber, building: foundBuildingAbbr, room: foundRoom, date1: date1, date2: date2, date3: date3, timeFrom: timeFrom.formatted(date: .omitted, time: .shortened), timeTo: timeTo.formatted(date: .omitted, time: .shortened))
+
+        // save class
+        modelContext.insert(course)
+
+        // add the selected building to favorites, also add the course to building's courses list
+        if let building: Building = {
+            return buildings.first { $0.Abbr == foundBuildingAbbr }
+        }() {
+            building.isFavorited = isValidRoom
+            building.courses?.append(course)
         }
     }
 
@@ -151,10 +172,7 @@ struct AddClassScreen: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        if isValidRoom {
-                            roomNumber = "\(foundBuildingAbbr) \(foundRoom)"
-                        }
-                        modelContext.insert(Course(name: name, roomNumber: roomNumber, building: foundBuildingAbbr, room: foundRoom, date1: date1, date2: date2, date3: date3, timeFrom: timeFrom.formatted(date: .omitted, time: .shortened), timeTo: timeTo.formatted(date: .omitted, time: .shortened)))
+                        addClass()
                         dismiss()
                     }, label: {
                         Text("Done")

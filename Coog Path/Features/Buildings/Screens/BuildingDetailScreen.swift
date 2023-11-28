@@ -40,21 +40,26 @@ struct BuildingDetailScreen: View {
                         .padding(.vertical, 2)
                     Text(building.Address)
                 }
-//                VStack(alignment: .leading, spacing: 2) {
-//                    Text("Sample room numbers:")
-//                        .bold()
-//                        .font(.headline)
-//                        .padding(.top, 30)
-//                    ForEach(building.SampleRoomNumbers, id: \.self) { room in
-//                        Label("\(building.Abbr) \(room)", systemImage: "smallcircle.filled.circle")
-//                            .padding(.top, 5)
-//                    }
-//                }
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Your schedule in this building:")
-                        .bold()
-                        .font(.headline)
-                        .padding(.top, 30)
+                    if building.courses!.count > 0 {
+                        Text("Your schedule in this building:")
+                            .bold()
+                            .font(.headline)
+                            .padding(.top, 30)
+                        ScrollView {
+                            ForEach(building.courses!, id: \.self) { course in
+                                HStack {
+                                    Label("\(course.name)", systemImage: "book.fill")
+                                        .fontWeight(.semibold)
+                                    Text("@")
+                                    Label("\(course.roomNumber)", systemImage: "studentdesk")
+                                }
+                                .padding(.bottom, 3)
+                            }
+                        }
+                        .padding()
+                        .background(Color.background.opacity(0.3))
+                    }
                 }
                 Spacer()
             }
@@ -82,4 +87,5 @@ struct BuildingDetailScreen: View {
 
 #Preview {
     BuildingScreen()
+        .modelContainer(for: [Course.self, Building.self])
 }

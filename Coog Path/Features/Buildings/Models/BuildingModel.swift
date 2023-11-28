@@ -18,8 +18,9 @@ class Building: Decodable, Identifiable {
     let Address: String
     let SampleRoomNumbers: [String]
     var isFavorited: Bool = false
+    var courses: [Course]?
 
-    init(id: UUID = UUID(), Number: String, Abbr: String, Name: String, Photo: String, Address: String, SampleRoomNumbers: [String], isFavorited: Bool) {
+    init(id: UUID = UUID(), Number: String, Abbr: String, Name: String, Photo: String, Address: String, SampleRoomNumbers: [String], isFavorited: Bool, courses: [Course]? = nil) {
         self.id = id
         self.Number = Number
         self.Abbr = Abbr
@@ -28,6 +29,7 @@ class Building: Decodable, Identifiable {
         self.Address = Address
         self.SampleRoomNumbers = SampleRoomNumbers
         self.isFavorited = isFavorited
+        self.courses = courses
     }
 
     private enum CodingKeys: String, CodingKey {
