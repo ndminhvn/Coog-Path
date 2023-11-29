@@ -81,15 +81,15 @@ struct HomeScreen: View {
             .overlay(alignment: .topLeading) {
                 VStack {
                     // Going to stack
-                    VStack {
-                        if !routeDisplaying {
+                    if !routeDisplaying {
+                        VStack {
                             HStack {
                                 Text("Destination")
                                     .bold()
                                     .font(.system(size: 20))
+                                    .background(Color.white.opacity(0.5).blur(radius: 4))
                                 Spacer()
                             }
-
                             // Search building text field
                             HStack {
                                 withAnimation(.smooth) {
@@ -117,6 +117,7 @@ struct HomeScreen: View {
                                         }
                                     }
                                 }
+                                .shadow(radius: 10)
                                 .padding(7)
                                 .background(Color.white)
                                 .clipShape(.rect(cornerRadius: 6))
@@ -131,102 +132,102 @@ struct HomeScreen: View {
 
                                     } label: {
                                         Text("Cancel")
+                                            .fontWeight(.semibold)
                                     }
                                 }
                             }
                         }
+                    }
 
-                        // Show list of buildings when user start typing
-                        if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
-                            withAnimation(.smooth) {
-                                List {
-                                    ForEach(buildingVM.filteredBuildingsForMap) { building in
-                                        HStack {
-                                            VStack(alignment: .leading) {
-                                                HStack {
-                                                    Text(building.Abbr)
-                                                        .bold()
-                                                        .font(.system(size: 20))
-                                                    if building.isFavorited == true {
-                                                        Image(systemName: "star.fill")
-                                                            .foregroundStyle(Color.main.opacity(0.8))
-                                                    }
-                                                }
-                                                Text(building.Name)
-                                                    .font(.system(size: 15))
-                                            }
-                                            Spacer()
-                                        }
-                                        // When user pick a destination building
-                                        .onTapGesture {
-                                            buildingVM.searchDestinationForMap = building.Name
-                                            isFocused = false
-                                            destinationLocation = buildingVM.searchDestinationForMap
-                                            Task {
-                                                guard !buildingVM.searchDestinationForMap.isEmpty else { return }
-                                                await buildingVM.searchBuilding() // Await for search building to add building location to searchResult
-                                                searchResults = buildingVM.searchResults[0]
-                                                // Show polyline
-                                                //                                            route = await buildingVM.fetchRoute()
-                                                //                                            withAnimation(.snappy) {
-                                                //                                                routeDisplaying = true
-                                                //                                            }
-                                            }
-                                        }
-                                    }
-                                }
-                                .frame(maxHeight: 250)
-                                .listStyle(.plain)
-                            }
-                        }
-                        // Show favorite buildings when user tap on search box
-                        else if isFocused && buildingVM.searchDestinationForMap.isEmpty {
-                            withAnimation(.smooth) {
-                                List {
-                                    ForEach(favoritedBuildings) { building in
-                                        HStack {
-                                            VStack(alignment: .leading) {
-                                                HStack {
-                                                    Text(building.Abbr)
-                                                        .bold()
-                                                        .font(.system(size: 20))
+                    // Show list of buildings when user start typing
+                    if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
+                        withAnimation(.smooth) {
+                            List {
+                                ForEach(buildingVM.filteredBuildingsForMap) { building in
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text(building.Abbr)
+                                                    .bold()
+                                                    .font(.system(size: 20))
+                                                if building.isFavorited == true {
                                                     Image(systemName: "star.fill")
                                                         .foregroundStyle(Color.main.opacity(0.8))
                                                 }
-
-                                                Text(building.Name)
-                                                    .font(.system(size: 15))
                                             }
-                                            Spacer()
+                                            Text(building.Name)
+                                                .font(.system(size: 15))
                                         }
-                                        // When user pick a destination building
-                                        .onTapGesture {
-                                            buildingVM.searchDestinationForMap = building.Name
-                                            isFocused = false
-                                            destinationLocation = buildingVM.searchDestinationForMap
-                                            Task {
-                                                guard !buildingVM.searchDestinationForMap.isEmpty else { return }
-                                                await buildingVM.searchBuilding() // Await for search building to add building location to searchResult
-                                                searchResults = buildingVM.searchResults[0]
-                                                // Show polyline
-                                                //                                            route = await buildingVM.fetchRoute()
-                                                //                                            withAnimation(.snappy) {
-                                                //                                                routeDisplaying = true
-                                                //                                            }
-                                            }
+                                        Spacer()
+                                    }
+                                    // When user pick a destination building
+                                    .onTapGesture {
+                                        buildingVM.searchDestinationForMap = building.Name
+                                        isFocused = false
+                                        destinationLocation = buildingVM.searchDestinationForMap
+                                        Task {
+                                            guard !buildingVM.searchDestinationForMap.isEmpty else { return }
+                                            await buildingVM.searchBuilding() // Await for search building to add building location to searchResult
+                                            searchResults = buildingVM.searchResults[0]
+                                            // Show polyline
+                                            //                                            route = await buildingVM.fetchRoute()
+                                            //                                            withAnimation(.snappy) {
+                                            //                                                routeDisplaying = true
+                                            //                                            }
                                         }
                                     }
                                 }
-                                .frame(maxHeight: 250)
-                                .listStyle(.plain)
                             }
+                            .frame(maxHeight: 250)
+                            .listStyle(.plain)
+                        }
+                    }
+                    // Show favorite buildings when user tap on search box
+                    else if isFocused && buildingVM.searchDestinationForMap.isEmpty {
+                        withAnimation(.smooth) {
+                            List {
+                                ForEach(favoritedBuildings) { building in
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text(building.Abbr)
+                                                    .bold()
+                                                    .font(.system(size: 20))
+                                                Image(systemName: "star.fill")
+                                                    .foregroundStyle(Color.main.opacity(0.8))
+                                            }
+
+                                            Text(building.Name)
+                                                .font(.system(size: 15))
+                                        }
+                                        Spacer()
+                                    }
+                                    // When user pick a destination building
+                                    .onTapGesture {
+                                        buildingVM.searchDestinationForMap = building.Name
+                                        isFocused = false
+                                        destinationLocation = buildingVM.searchDestinationForMap
+                                        Task {
+                                            guard !buildingVM.searchDestinationForMap.isEmpty else { return }
+                                            await buildingVM.searchBuilding() // Await for search building to add building location to searchResult
+                                            searchResults = buildingVM.searchResults[0]
+                                            // Show polyline
+                                            //                                            route = await buildingVM.fetchRoute()
+                                            //                                            withAnimation(.snappy) {
+                                            //                                                routeDisplaying = true
+                                            //                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .frame(maxHeight: 250)
+                            .listStyle(.plain)
                         }
                     }
                 }
                 .textFieldStyle(.roundedBorder)
                 .shadow(radius: 10)
                 .padding()
-                .background(Color.white.opacity(0.75).blur(radius: 4))
             }
             // Map control
             .overlay(alignment: .bottomTrailing) {
