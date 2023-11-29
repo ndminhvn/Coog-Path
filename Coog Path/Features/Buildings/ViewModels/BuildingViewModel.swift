@@ -18,21 +18,21 @@ class BuildingViewModel: ObservableObject {
     @Published var filterOption: String = "All buildings"
     @ObservedObject var locationManager = LocationManager()
 
-    func loadData() {
-        if let url = Bundle.main.url(forResource: "building_list", withExtension: "json") {
-            do {
-                let data = try Data(contentsOf: url)
-                let buildings = try JSONDecoder().decode([Building].self, from: data)
-                DispatchQueue.main.async {
-                    self.buildings = buildings
-                }
-            } catch {
-                print("Error loading building list: \(error.localizedDescription)")
-            }
-        } else {
-            print("Json file not found")
-        }
-    }
+//    func loadData() {
+//        if let url = Bundle.main.url(forResource: "building_list", withExtension: "json") {
+//            do {
+//                let data = try Data(contentsOf: url)
+//                let buildings = try JSONDecoder().decode([Building].self, from: data)
+//                DispatchQueue.main.async {
+//                    self.buildings = buildings
+//                }
+//            } catch {
+//                print("Error loading building list: \(error.localizedDescription)")
+//            }
+//        } else {
+//            print("Json file not found")
+//        }
+//    }
 
     var filteredBuildings: [Building] {
         var filteredList: [Building]
@@ -98,9 +98,9 @@ class BuildingViewModel: ObservableObject {
         let result = try? await MKDirections(request: request).calculate()
         return result?.routes.first ?? defaultRoute
     }
-    
+
     // remove all search result
-    func removeSearchResults(){
+    func removeSearchResults() {
         searchResults.removeAll(keepingCapacity: false)
     }
 }

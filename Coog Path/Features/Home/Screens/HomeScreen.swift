@@ -25,8 +25,8 @@ struct HomeScreen: View {
     @State private var showDetails = false
     @State private var lookAroundScene: MKLookAroundScene?
     // Favorite building query
+    @Query var buildings: [Building]
     @Query(filter: #Predicate<Building> { $0.isFavorited }) var favoritedBuildings: [Building]
-
     // Get the profile name to show Welcome back text
     @Query var profiles: [Profile]
 
@@ -66,6 +66,17 @@ struct HomeScreen: View {
                     MapPolyline(route.polyline)
                         .stroke(.main, lineWidth: 7)
                 }
+            }
+            .onAppear(perform: {
+                // assign viewModel buildings array = query result
+                buildingVM.buildings = buildings
+                buildingVM.favoritedBuilding = favoritedBuildings
+            })
+            .onChange(of: buildings) {
+                buildingVM.buildings = buildings
+            }
+            .onChange(of: favoritedBuildings) {
+                buildingVM.favoritedBuilding = favoritedBuildings
             }
             .overlay(alignment: .topLeading) {
                 VStack {
@@ -128,6 +139,10 @@ struct HomeScreen: View {
                             List {
                                 ForEach(buildingVM.filteredBuildingsForMap) { building in
                                     HStack {
+                                        if building.isFavorited == true {
+                                            Image(systemName: "star.fill")
+                                                .foregroundStyle(Color.main.opacity(0.8))
+                                        }
                                         VStack(alignment: .leading) {
                                             Text(building.Abbr)
                                                 .bold()
@@ -137,7 +152,6 @@ struct HomeScreen: View {
                                         }
                                         Spacer()
                                     }
-
                                     // When user pick a destination building
                                     .onTapGesture {
                                         buildingVM.searchDestinationForMap = building.Name
@@ -158,11 +172,6 @@ struct HomeScreen: View {
                             }
                             .frame(maxHeight: 250)
                             .listStyle(.plain)
-                            .onAppear {
-                                Task {
-                                    buildingVM.loadData()
-                                }
-                            }
                         }
                         // Show favorite buildings when user tap on search box
                         else if isFocused && buildingVM.searchDestinationForMap.isEmpty {
@@ -200,11 +209,6 @@ struct HomeScreen: View {
                             }
                             .frame(maxHeight: 250)
                             .listStyle(.plain)
-                            .onAppear {
-                                Task {
-                                    buildingVM.loadData()
-                                }
-                            }
                         }
                     }
                 }
