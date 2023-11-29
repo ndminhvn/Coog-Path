@@ -24,6 +24,8 @@ struct HomeScreen: View {
     // Map detail properties
     @State private var showDetails = false
     @State private var lookAroundScene: MKLookAroundScene?
+    // Favorite building query
+    @Query(filter: #Predicate<Building> { $0.isFavorited }) var favoritedBuildings: [Building]
 
     // Get the profile name to show Welcome back text
     @Query var profiles: [Profile]
@@ -50,6 +52,7 @@ struct HomeScreen: View {
             }
             // Map stack
             Map(position: $locationManager.myPosition, scope: mapScope) {
+                // Place marker
                 ForEach(buildingVM.searchResults, id: \.self) { mapItem in
                     let placemark = mapItem.placemark
                     Marker(destinationLocation, coordinate: placemark.coordinate)
@@ -57,6 +60,7 @@ struct HomeScreen: View {
                 }
 
                 UserAnnotation() // User location
+
                 // Display route using polyline
                 if let route {
                     MapPolyline(route.polyline)
@@ -65,20 +69,6 @@ struct HomeScreen: View {
             }
             .overlay(alignment: .topLeading) {
                 VStack {
-                    // From stack
-//                    VStack {
-//                        HStack {
-//                            Text("From")
-//                                .bold()
-//                                .font(.system(size: 20))
-//                            Spacer()
-//                        }
-//                        TextField(
-//                            "Your Current Location",
-//                            text: $fromLocation
-//                        )
-//                    }
-
                     // Going to stack
                     VStack {
                         if !routeDisplaying {
@@ -102,7 +92,7 @@ struct HomeScreen: View {
                                     .textFieldStyle(.plain)
 
                                     // Dismiss search list when user click x symbol
-                                    if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
+                                    if isFocused {
                                         Button {
                                             buildingVM.searchDestinationForMap = "" // Empty search bar
                                             buildingVM.removeSearchResults() // Remove all results
@@ -118,7 +108,7 @@ struct HomeScreen: View {
                                 .background(Color.white)
                                 .clipShape(.rect(cornerRadius: 6))
                                 // Dismiss seach list when user click "cancel" button
-                                if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
+                                if isFocused {
                                     Button {
                                         buildingVM.searchDestinationForMap = "" // Empty search bar
                                         buildingVM.removeSearchResults() // Remove all results
@@ -133,7 +123,7 @@ struct HomeScreen: View {
                             }
                         }
 
-                        // Show list of valid building name
+                        // Show list of buildings when user start typing
                         if !buildingVM.searchDestinationForMap.isEmpty && isFocused {
                             List {
                                 ForEach(buildingVM.filteredBuildingsForMap) { building in
@@ -148,6 +138,48 @@ struct HomeScreen: View {
                                         Spacer()
                                     }
 
+                                    // When user pick a destination building
+                                    .onTapGesture {
+                                        buildingVM.searchDestinationForMap = building.Name
+                                        isFocused = false
+                                        destinationLocation = buildingVM.searchDestinationForMap
+                                        Task {
+                                            guard !buildingVM.searchDestinationForMap.isEmpty else { return }
+                                            await buildingVM.searchBuilding() // Await for search building to add building location to searchResult
+                                            searchResults = buildingVM.searchResults[0]
+                                            // Show polyline
+//                                            route = await buildingVM.fetchRoute()
+//                                            withAnimation(.snappy) {
+//                                                routeDisplaying = true
+//                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .frame(maxHeight: 250)
+                            .listStyle(.plain)
+                            .onAppear {
+                                Task {
+                                    buildingVM.loadData()
+                                }
+                            }
+                        }
+                        // Show favorite buildings when user tap on search box
+                        else if isFocused && buildingVM.searchDestinationForMap.isEmpty {
+                            List {
+                                ForEach(favoritedBuildings) { building in
+                                    HStack {
+                                        Image(systemName: "star.fill")
+                                            .foregroundStyle(Color.main.opacity(0.8))
+                                        VStack(alignment: .leading) {
+                                            Text(building.Abbr)
+                                                .bold()
+                                                .font(.system(size: 20))
+                                            Text(building.Name)
+                                                .font(.system(size: 15))
+                                        }
+                                        Spacer()
+                                    }
                                     // When user pick a destination building
                                     .onTapGesture {
                                         buildingVM.searchDestinationForMap = building.Name
@@ -197,7 +229,13 @@ struct HomeScreen: View {
             }
             .mapScope(mapScope)
             // Show building detail when user select a building
-            .sheet(isPresented: $showDetails, content: {
+            .sheet(isPresented: $showDetails, onDismiss: {
+                withAnimation(.snappy) {
+                    if let boundingRect = route?.polyline.boundingMapRect {
+                        locationManager.myPosition = .rect(boundingRect)
+                    }
+                }
+            }, content: {
                 MapDetails()
                     .presentationDetents([.height(300)])
                     .presentationBackgroundInteraction(.enabled(upThrough: .height(300)))
@@ -226,7 +264,7 @@ struct HomeScreen: View {
                 }
             }
             .onChange(of: searchResults) { _, newValue in
-                // locationManager.myPosition = .automatic
+                locationManager.myPosition = .automatic
                 // Show preview detail if user pick a location
                 // showDetails = searchResults != nil ? true : false
                 showDetails = newValue != nil

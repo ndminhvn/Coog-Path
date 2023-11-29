@@ -65,7 +65,6 @@ class BuildingViewModel: ObservableObject {
 
     var filteredBuildingsForMap: [Building] {
         var filteredList: [Building] = []
-
         if !searchDestinationForMap.isEmpty {
             filteredList = buildings.filter { building in
                 building.Name.lowercased().contains(searchDestinationForMap.lowercased())
