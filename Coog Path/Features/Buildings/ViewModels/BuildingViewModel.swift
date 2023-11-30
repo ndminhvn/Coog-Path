@@ -16,6 +16,7 @@ class BuildingViewModel: ObservableObject {
     @Published var searchDestinationForMap: String = ""
     @Published var searchResults: [MKMapItem] = []
     @Published var filterOption: String = "All buildings"
+    @Published var lookAroundScene: MKLookAroundScene?
     @ObservedObject var locationManager = LocationManager()
 
 //    func loadData() {
@@ -84,6 +85,26 @@ class BuildingViewModel: ObservableObject {
         let results = try? await MKLocalSearch(request: request).start()
         searchResults = results?.mapItems ?? []
         searchResults = [searchResults[0]]
+    }
+
+    // Fetching location preview
+    func fetchLookAroundPreview() {
+        if !searchResults.isEmpty {
+            lookAroundScene = nil
+            Task {
+                do {
+                    let request = MKLookAroundSceneRequest(mapItem: searchResults[0])
+                    lookAroundScene = try await request.scene
+                    print("success")
+                } catch {
+                    // Handle the error here
+                    print("Error fetching look around preview: \(error)")
+                }
+            }
+        } else {
+            // Handle the case where searchResults is nil
+            print("Error: searchResults is nil")
+        }
     }
 
     // fetching route
