@@ -95,6 +95,7 @@ struct ProfileScreen: View {
                     .toolbar {
                         EditButton()
                             .font(.title2)
+                            .disabled(courses.isEmpty)
                     }
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
