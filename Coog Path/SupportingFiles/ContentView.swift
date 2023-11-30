@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var buildingVM = BuildingViewModel()
+    @StateObject var locationManager = LocationManager()
     var body: some View {
         TabView {
             HomeScreen()
@@ -26,10 +27,12 @@ struct ContentView: View {
         }
         .tint(Color.main)
         .environmentObject(buildingVM)
+        .environmentObject(locationManager)
     }
 }
 
 #Preview {
     ContentView()
         .environmentObject(BuildingViewModel())
+        .environmentObject(LocationManager())
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct BuildingDetailScreen: View {
     var building: Building
     @EnvironmentObject var buildingVM: BuildingViewModel
+    @StateObject var locationManager = LocationManager()
     @State private var showHomeScreen = false
 
     var body: some View {
@@ -78,6 +79,7 @@ struct BuildingDetailScreen: View {
                         await buildingVM.searchBuilding()
                         buildingVM.fetchLookAroundPreview()
                         showHomeScreen.toggle()
+                        locationManager.myPosition = .automatic
                     }
                 } label: {
                     Text("Show on Map")

@@ -14,7 +14,7 @@ struct BuildingScreen: View {
     @Query var buildings: [Building]
     // favorited buildings only
     @Query(filter: #Predicate<Building> { $0.isFavorited }) var favoritedBuildings: [Building]
-    @ObservedObject var viewModel = BuildingViewModel()
+    @EnvironmentObject var viewModel: BuildingViewModel
     @State private var showFilterOptions: Bool = false
 
     var body: some View {

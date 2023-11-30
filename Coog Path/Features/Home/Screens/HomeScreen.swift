@@ -18,7 +18,8 @@ struct HomeScreen: View {
     @FocusState private var isFocused: Bool // If text field is focused
     // Map properties
     @Namespace var mapScope
-    @StateObject var locationManager = LocationManager()
+    // @StateObject var locationManager = LocationManager()
+    @EnvironmentObject var locationManager: LocationManager
     // Route properties
     @State private var routeDisplaying: Bool = false
     @State private var route: MKRoute?
@@ -280,11 +281,13 @@ struct HomeScreen: View {
                 }
             }
             .onChange(of: searchResults) { _, newValue in
-                locationManager.myPosition = .automatic
                 // Show preview detail if user pick a location
                 // showDetails = searchResults != nil ? true : false
                 showDetails = newValue != nil
                 buildingVM.fetchLookAroundPreview()
+            }
+            .onChange(of: showDetails) {
+                locationManager.myPosition = .automatic
             }
             .clipShape(.rect(cornerRadius: 16))
         }
