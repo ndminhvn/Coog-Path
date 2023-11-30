@@ -56,14 +56,6 @@
         "SampleRoomNumbers": ["232", "563"]
     },
     {
-        "Number": "116",
-        "Abbr": "ACT",
-        "Name": "Safety, Human Factors & Ergonomic Laboratory",
-        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
-        "Address": "3551 Cullen Blvd., Houston, TX 77204",
-        "SampleRoomNumbers": ["232", "563"]
-    },
-    {
         "Number": "117",
         "Abbr": "TVFB",
         "Name": "KUHT TV at Fort Bend - Tower",
@@ -299,14 +291,6 @@
         "Number": "420",
         "Abbr": "ERP20",
         "Name": "Technology Bridge Storage",
-        "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
-        "Address": "3551 Cullen Blvd., Houston, TX 77204",
-        "SampleRoomNumbers": ["232", "563"]
-    },
-    {
-        "Number": "475",
-        "Abbr": "",
-        "Name": "Softball Batting Facility",
         "Photo": "https://www.uh.edu/infotech/_images/buildings/pgh.jpg",
         "Address": "3551 Cullen Blvd., Houston, TX 77204",
         "SampleRoomNumbers": ["232", "563"]
