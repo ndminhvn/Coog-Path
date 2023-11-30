@@ -20,12 +20,16 @@ struct BuildingDetailScreen: View {
                     image
                         .resizable()
                         .scaledToFit()
-                } else if phase.error != nil {
-                    ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
-                } else {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle())
-                        .frame(height: 200)
+                }
+//                else if phase.error != nil {
+//                    ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
+//                } else {
+//                    ProgressView()
+//                        .progressViewStyle(CircularProgressViewStyle())
+//                        .frame(height: 200)
+//                }
+                else {
+                    ContentUnavailableView("No Photo Available", systemImage: "eye.slash")
                 }
             }
             Spacer()
