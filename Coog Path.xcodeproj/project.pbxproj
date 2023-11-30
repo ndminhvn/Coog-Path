@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6759294E2AEED03900352226 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6759294D2AEED03900352226 /* HomeViewModel.swift */; };
+		870CFA4B2B18530D0020A6D9 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870CFA4A2B18530D0020A6D9 /* SplashScreen.swift */; };
 		8713AA6B2AE4CCBE00418AA5 /* building_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 8713AA6A2AE4CCBE00418AA5 /* building_list.json */; };
 		8713AA6E2AE4CE6C00418AA5 /* BuildingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713AA6D2AE4CE6C00418AA5 /* BuildingModel.swift */; };
 		8713AA712AE4D04E00418AA5 /* BuildingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8713AA702AE4D04E00418AA5 /* BuildingViewModel.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		6759294D2AEED03900352226 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		870CFA4A2B18530D0020A6D9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		8713AA6A2AE4CCBE00418AA5 /* building_list.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = building_list.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		8713AA6D2AE4CE6C00418AA5 /* BuildingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingModel.swift; sourceTree = "<group>"; };
 		8713AA702AE4D04E00418AA5 /* BuildingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingViewModel.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				87E64ED42AE1B2F400DEC2A8 /* Coog_PathApp.swift */,
 				87E64ED62AE1B2F400DEC2A8 /* ContentView.swift */,
+				870CFA4A2B18530D0020A6D9 /* SplashScreen.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				87E64ED52AE1B2F400DEC2A8 /* Coog_PathApp.swift in Sources */,
 				8713AA7B2AE5C13B00418AA5 /* CourseModel.swift in Sources */,
 				8713AA7D2AE5C1E700418AA5 /* ProfileViewModel.swift in Sources */,
+				870CFA4B2B18530D0020A6D9 /* SplashScreen.swift in Sources */,
 				6759294E2AEED03900352226 /* HomeViewModel.swift in Sources */,
 				877314642AE338D200E2FFEA /* HomeScreen.swift in Sources */,
 				8713AA732AE4DCAD00418AA5 /* BuildingDetailScreen.swift in Sources */,

@@ -12,7 +12,7 @@ import SwiftUI
 struct Coog_PathApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
         }
         .modelContainer(appContainer)
     }

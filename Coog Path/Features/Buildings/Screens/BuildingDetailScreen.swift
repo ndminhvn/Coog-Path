@@ -10,7 +10,7 @@ import SwiftUI
 struct BuildingDetailScreen: View {
     var building: Building
     @EnvironmentObject var buildingVM: BuildingViewModel
-    @StateObject var locationManager = LocationManager()
+    @EnvironmentObject var locationManager: LocationManager
     @State private var showHomeScreen = false
 
     var body: some View {
@@ -56,7 +56,6 @@ struct BuildingDetailScreen: View {
                                         .fontWeight(.semibold)
                                     Text("@")
                                     Label("\(course.roomNumber)", systemImage: "studentdesk")
-//                                    Spacer()
                                 }
                                 .padding(.bottom, 3)
                             }
