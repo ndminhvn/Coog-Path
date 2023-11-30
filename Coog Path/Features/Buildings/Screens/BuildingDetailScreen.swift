@@ -20,7 +20,7 @@ struct BuildingDetailScreen: View {
                         .resizable()
                         .scaledToFit()
                 } else if phase.error != nil {
-                    Text("Error image")
+                    ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
                 } else {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
@@ -55,15 +55,22 @@ struct BuildingDetailScreen: View {
                                         .fontWeight(.semibold)
                                     Text("@")
                                     Label("\(course.roomNumber)", systemImage: "studentdesk")
+//                                    Spacer()
                                 }
                                 .padding(.bottom, 3)
                             }
                         }
-                        .padding()
                         .background(Color.background.opacity(0.3))
                     }
                 }
-                // show on map button
+                Spacer()
+            }
+            .padding(.top, 10)
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(Color.white.opacity(0.3))
+            Spacer()
+            // show on map button
+            VStack {
                 Button {
                     Task {
                         buildingVM.searchDestinationForMap = building.Name
@@ -74,7 +81,13 @@ struct BuildingDetailScreen: View {
                     }
                 } label: {
                     Text("Show on Map")
+                        .font(.title3)
+                        .bold()
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 45)
+                        .padding(.horizontal, 20)
+                        .foregroundStyle(.white)
                 }
+                .background(RoundedRectangle(cornerRadius: 16).fill(Color.main))
                 .fullScreenCover(isPresented: $showHomeScreen) {
                     if !buildingVM.searchResults.isEmpty {
                         HomeScreen(searchResults: buildingVM.searchResults[0], showDetails: true)
@@ -82,12 +95,7 @@ struct BuildingDetailScreen: View {
                         ContentView()
                     }
                 }
-                Spacer()
             }
-            .padding(.top, 10)
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .background(Color.white)
-            Spacer()
         }
         .padding()
         .padding(.top, -30)
