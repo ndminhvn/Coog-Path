@@ -10,20 +10,20 @@ import SwiftData
 import SwiftUI
 
 struct HomeScreen: View {
+    // BuildingVM
+    @EnvironmentObject var buildingVM: BuildingViewModel
     // Search text field properties
     @State private var destinationLocation: String = "" // Destination
-    @State private var searchResults: MKMapItem?
+    @State var searchResults: MKMapItem?
     @FocusState private var isFocused: Bool // If text field is focused
     // Map properties
     @Namespace var mapScope
     @StateObject var locationManager = LocationManager()
-    @ObservedObject var buildingVM = BuildingViewModel()
     // Route properties
     @State private var routeDisplaying: Bool = false
     @State private var route: MKRoute?
     // Map detail properties
-    @State private var showDetails = false
-    @State private var lookAroundScene: MKLookAroundScene?
+    @State var showDetails = false
     // Favorite building query
     @Query var buildings: [Building]
     @Query(filter: #Predicate<Building> { $0.isFavorited }) var favoritedBuildings: [Building]
@@ -284,32 +284,13 @@ struct HomeScreen: View {
                 // Show preview detail if user pick a location
                 // showDetails = searchResults != nil ? true : false
                 showDetails = newValue != nil
-                fetchLookAroundPreview()
+                buildingVM.fetchLookAroundPreview()
             }
             .clipShape(.rect(cornerRadius: 16))
         }
+//        .navigationBarBackButtonHidden()
         .padding()
         .background(Color.background)
-    }
-
-    // Fetching location preview
-    func fetchLookAroundPreview() {
-        if let searchResults = searchResults {
-            lookAroundScene = nil
-            Task {
-                do {
-                    let request = MKLookAroundSceneRequest(mapItem: searchResults)
-                    lookAroundScene = try await request.scene
-                    print("success")
-                } catch {
-                    // Handle the error here
-                    print("Error fetching look around preview: \(error)")
-                }
-            }
-        } else {
-            // Handle the case where searchResults is nil
-            print("Error: searchResults is nil")
-        }
     }
 
     // Map Details View
@@ -317,10 +298,10 @@ struct HomeScreen: View {
     func MapDetails() -> some View {
         VStack(spacing: 15) {
             ZStack {
-                if lookAroundScene == nil {
+                if buildingVM.lookAroundScene == nil {
                     ContentUnavailableView("No Preview Available", systemImage: "eye.slash")
                 } else {
-                    LookAroundPreview(initialScene: lookAroundScene)
+                    LookAroundPreview(initialScene: buildingVM.lookAroundScene)
                 }
             }
             .frame(height: 200)

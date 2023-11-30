@@ -9,6 +9,8 @@ import SwiftUI
 
 struct BuildingDetailScreen: View {
     var building: Building
+    @EnvironmentObject var buildingVM: BuildingViewModel
+    @State private var showHomeScreen = false
 
     var body: some View {
         VStack(spacing: 2) {
@@ -59,6 +61,25 @@ struct BuildingDetailScreen: View {
                         }
                         .padding()
                         .background(Color.background.opacity(0.3))
+                    }
+                }
+                // show on map button
+                Button {
+                    Task {
+                        buildingVM.searchDestinationForMap = building.Name
+                        guard !buildingVM.searchDestinationForMap.isEmpty else { return }
+                        await buildingVM.searchBuilding()
+                        buildingVM.fetchLookAroundPreview()
+                        showHomeScreen.toggle()
+                    }
+                } label: {
+                    Text("Show on Map")
+                }
+                .fullScreenCover(isPresented: $showHomeScreen) {
+                    if !buildingVM.searchResults.isEmpty {
+                        HomeScreen(searchResults: buildingVM.searchResults[0], showDetails: true)
+                    } else {
+                        ContentView()
                     }
                 }
                 Spacer()
