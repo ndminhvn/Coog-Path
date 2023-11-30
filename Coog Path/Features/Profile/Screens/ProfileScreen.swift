@@ -99,8 +99,10 @@ struct ProfileScreen: View {
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) {
                             HStack {
-                                Image("uh_red-2")
-                                    .font(.title2)
+                                Image("uh_red")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 35)
                                 Text("Saved Classes")
                                     .font(.title2)
                                     .fontWeight(.semibold)
