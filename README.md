@@ -20,6 +20,11 @@
 2. Clone the repository: `git clone https://github.com/ndminhvn/Coog-Path`
 3. Open the project with Xcode (or double-click `Coog Path.xcodeproj`)
 4. Build the project
+5. Custom Location for Simulator: This simulates the central **UH** location
+
+- Open Features -> Location -> Custom Location:
+  - Latitude: `29.72001`
+  - Longitude: `-95.34207`
 
 ## Features:
 
