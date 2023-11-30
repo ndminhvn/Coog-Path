@@ -51,7 +51,7 @@ struct BuildingScreen: View {
                         Section(header: Text("Filter")) {
                             Picker(selection: $viewModel.filterOption) {
                                 Label("All buildings", systemImage: "building").tag("All buildings")
-                                Label("Favorited", systemImage: "star").tag("Favorited")
+                                Label("Favorites", systemImage: "star").tag("Favorites")
                             } label: {
                                 Text("Filter")
                             }
