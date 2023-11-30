@@ -13,7 +13,8 @@ struct SplashScreen: View {
     // isActive is used to trigger ContentView
     @State private var isActive = false
     // needSamples is used to trigger generateSample function
-    @State private var needSamples = false
+    // default to Yes for demo purpose
+    @State private var needSamples = true
     // progress is used to calculate the progress view
     @State private var progress = 0.2
     // isBtnClicked is used to trigger the click of Launch button
@@ -83,7 +84,7 @@ struct SplashScreen: View {
                         .frame(height: 200)
                         .opacity(0.8)
                     Spacer()
-                    Text("Do you want to include some sample cases?")
+                    Text("Do you want to generate some sample cases?")
                         .fontWeight(.semibold)
                     Picker("Do you want to include some sample cases?", selection: $needSamples) {
                         Text("Yes, give me some.").tag(true)
